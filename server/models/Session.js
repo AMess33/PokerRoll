@@ -79,3 +79,6 @@ const tournamentSchema = new Schema({
 // bullets x
 // placement finish/out of x
 // prize won x
+const Session = model("Session", sessionSchema);
+
+module.exports = Session;
