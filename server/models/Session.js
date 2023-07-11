@@ -47,17 +47,35 @@ const cashGameSchema = new Schema({
 });
 // cash game or tournament
 
-// cashgame
-// buy in
-// out for
-// win/loss
-// stakes
-// game type
-// start time
-// end time
+// cashgame x
+// buy in x
+// out for x
+// win/loss x
+// stakes x
+// game type x
+// start time x
+// end time x
 
-// tournament
-// buy in
-// bullets
-// placement finish/out of
-// prize won
+const tournamentSchema = new Schema({
+  buyIn: {
+    type: Int,
+    required: true,
+  },
+  bullets: {
+    type: Int,
+    required: true,
+  },
+  placment: {
+    type: String,
+    required: true,
+  },
+  winnings: {
+    type: Int,
+    required: true,
+  },
+});
+// tournament x
+// buy in x
+// bullets x
+// placement finish/out of x
+// prize won x
