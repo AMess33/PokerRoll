@@ -34,20 +34,8 @@ const userSchema = new Schema({
 // email x
 // username x
 // password x
+// sessions x
 
-// sessions/ sessions will have
-// buy in
-// out for
-// win/loss
-// stakes
-// game type
-
-// bankroll
-// start
-// current
-// ability to add
-// ability to subract
-// win/loss by duration 1m 4m 6m 1y (graph for each)
 userSchema.pre("save", async function (next) {
   if (this.IsNew || this.isModified("password")) {
     const saltRounds = 10;
