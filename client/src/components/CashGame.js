@@ -8,7 +8,7 @@
 import { Link } from "react-router-dom";
 
 function CashGame() {
-  return <div>{/* <H3>tournament name</H3> */}</div>;
+  return <div>{/* <H3>cashgame name</H3> */}</div>;
 }
 
 export default CashGame;
