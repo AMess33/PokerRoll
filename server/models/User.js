@@ -22,7 +22,10 @@ const userSchema = new Schema({
     required: true,
     minLength: 6,
   },
-  BankRoll: {},
+  BankRoll: {
+    type: Schema.Types.ObjectId,
+    ref: "BankRoll",
+  },
   sessions: [
     {
       type: Schema.Types.ObjectId,
