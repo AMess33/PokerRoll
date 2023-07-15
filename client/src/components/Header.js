@@ -8,7 +8,13 @@ function Header() {
     event.preventDefault();
     Auth.logout();
   };
-  return <header></header>;
+  return (
+    <header>
+      <div className="logo">
+        <h1>PokeRoll</h1>
+      </div>
+    </header>
+  );
 }
 
 export default Header;
