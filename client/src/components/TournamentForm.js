@@ -7,8 +7,8 @@
 
 import { Link } from "react-router-dom";
 
-function Tournament() {
+function TournamentForm() {
   return <div>{/* <H3>tournament name</H3> */}</div>;
 }
 
-export default Tournament;
+export default TournamentForm;
