@@ -12,6 +12,7 @@ export default function BottomNav() {
   return (
     <Box sx={{ width: 500 }}>
       <BottomNavigation
+        className="text-danger"
         showLabels
         value={value}
         onChange={(event, newValue) => {
