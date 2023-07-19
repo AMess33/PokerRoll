@@ -9,7 +9,7 @@ function Header() {
     Auth.logout();
   };
   return (
-    <header>
+    <header className="border border-bottom-1 border-danger">
       <div className="logo">
         <h1>PokeRoll</h1>
       </div>
