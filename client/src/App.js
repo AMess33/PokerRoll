@@ -41,6 +41,9 @@ function App() {
       <Router>
         <div className="App">
           <Header />
+          <div className="container">
+            <Routes></Routes>
+          </div>
           <BottomNav />
         </div>
       </Router>
