@@ -5,11 +5,7 @@
 import { Link } from "react-router-dom";
 
 function Bankroll() {
-  return (
-    <div>
-      <h3>$ ${bankroll}</h3>
-    </div>
-  );
+  return <div>{/* <h3>display users bankroll</h3> */}</div>;
 }
 
 export default Bankroll;
