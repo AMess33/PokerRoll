@@ -13,6 +13,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+<<<<<<< HEAD:myorg/tsconfig.json
     "paths": {},
     "jsx": "react-jsx",
     "allowJs": false,
@@ -20,6 +21,12 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "types": ["vite/client", "vitest"]
+=======
+    "paths": {
+      "@myorg/common-ui": ["libs/common-ui/src/index.ts"],
+      "@myorg/products": ["libs/products/src/index.ts"]
+    }
+>>>>>>> 49db6fdd93c56ea4dbe525b4c69c3cce99dc7d18:myorg/tsconfig.base.json
   },
   "files": [],
   "include": [],
