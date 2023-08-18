@@ -5,9 +5,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-// import Cashgame 
-// import Bankroll 
-// import Tournament 
+import Cashgame from "./app/cashgamePage";
+import Bankroll from "./app/bankrollPage";
+import Tournament from "./app/tournamentPage";
 
 import App from './app/app';
 
