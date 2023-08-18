@@ -5,6 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+// import Cashgame 
+// import Bankroll 
+// import Tournament 
+
 import App from './app/app';
 
 const router = createBrowserRouter([
@@ -20,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/cashgame",
-        element: <CashGame />,
+        element: <Cashgame />,
         loader: cashgameLoader,
       },
       {
