@@ -15,22 +15,22 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: rootLoader,
+    // loader: rootLoader,
     children: [
       {
         path: "/bankroll",
         element: <Bankroll />,
-        loader: bankrollLoader,
+        // loader: bankrollLoader,
       },
       {
         path: "/cashgame",
         element: <Cashgame />,
-        loader: cashgameLoader,
+        // loader: cashgameLoader,
       },
       {
         path: "/tournament",
         element: <Tournament />,
-        loader: tournamentLoader,
+        // loader: tournamentLoader,
       }
     ],
   },
