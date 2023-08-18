@@ -8,13 +8,14 @@ import {
 import Cashgame from "./app/cashgamePage";
 import Bankroll from "./app/bankrollPage";
 import Tournament from "./app/tournamentPage";
+import Home from "./app/homePage";
 
 import App from './app/app';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Home />,
     // loader: rootLoader,
     children: [
       {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <StrictMode>
   <RouterProvider router={router} />
   </StrictMode>
