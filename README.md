@@ -6,7 +6,14 @@
 
 ## Start the app
 
-To start the development server run `nx serve poker-roll`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+Run the `poker-roll` React app and server simultaneously in dev mode:
+
+```
+npm run dev
+```
+
+React app: http://localhost:4200/
+Server: http://localhost:3333/api
 
 ## Generate code
 
