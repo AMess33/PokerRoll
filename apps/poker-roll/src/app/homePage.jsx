@@ -1,5 +1,5 @@
 import React from "react";
-import Outlet from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
