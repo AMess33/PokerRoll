@@ -1,5 +1,10 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { 
+    BrowserRouter as Router,
+    Outlet,
+    Switch,
+    useParams 
+} from "react-router-dom";
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -8,12 +13,8 @@ import TableBarIcon from '@mui/icons-material/TableBar';
 import PaidIcon from '@mui/icons-material/Paid';
 
 
-// function usePageViews() {
-//     let location = useLocation();
-//     React.useEffect(() => {
-//       ga.send(["pageview", location.pathname]);
-//     }, [location]);
-//   }
+//  use the  userParams hook to set the value of the bottom nav based on page path
+
 
 const Home = (props) => {
 
