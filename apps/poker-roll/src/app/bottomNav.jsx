@@ -7,8 +7,7 @@ import TableBarIcon from '@mui/icons-material/TableBar';
 import PaidIcon from '@mui/icons-material/Paid';
 
 export default function BottomNav() {
-    const [value, setValue] = React.useState(0);
-  
+    const [value, setValue] = React.useState('/');
     return (
         <div className="footer">
             <Box sx={{ width: 500 }}>

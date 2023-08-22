@@ -7,16 +7,12 @@ import {
     useLocation
 } from "react-router-dom";
 
-const sendPageView = (eventCategory, eventAction) => {
-    ga('send', 'pageview', { 'page': window.location.pathname });
-};
-
-
 
 const Home = (props) => {
     let location = useLocation();
     React.useEffect(() => {
-        sendPageView('send', 'pageview');
+        const currentPath = location.pathname;
+        console.log("Current pathname:", currentPath);
       }, [location]);
 
     return (
