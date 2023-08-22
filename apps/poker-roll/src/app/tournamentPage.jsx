@@ -5,7 +5,7 @@ const Tournament = (props) => {
 
     return (
         <div>
-            <div></div>
+            <div>Enter new tournament Here</div>
         </div>
     )
 }

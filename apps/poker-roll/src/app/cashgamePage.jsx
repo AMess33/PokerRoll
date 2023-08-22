@@ -5,7 +5,9 @@ const Cashgame = (props) => {
 
     return (
         <div>
-            <div></div>
+            <div>
+                Lets start a new cashgame session!
+            </div>
         </div>
     )
 }
