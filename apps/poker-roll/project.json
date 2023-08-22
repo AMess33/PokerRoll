@@ -52,7 +52,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "poker-roll:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/poker-roll/proxy.conf.json"
       },
       "configurations": {
         "development": {
