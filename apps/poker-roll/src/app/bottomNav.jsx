@@ -19,9 +19,9 @@ export default function BottomNav() {
                     setValue(newValue);
                 }}
             >
-                    <BottomNavigationAction href="/bankroll" label="BankRoll"  icon={<PaidIcon />} />
-                    <BottomNavigationAction href="/cashgame" label="CashGames"  icon={<TableBarIcon />} />
-                    <BottomNavigationAction href="/tournament" label="Tournament"  icon={<EmojiEventsIcon />} />
+                    <BottomNavigationAction value="/bankroll" label="BankRoll"  icon={<PaidIcon />} />
+                    <BottomNavigationAction value="/cashgame" label="CashGames"  icon={<TableBarIcon />} />
+                    <BottomNavigationAction value="/tournament" label="Tournament"  icon={<EmojiEventsIcon />} />
                 </BottomNavigation>
              </Box>
         </div>
