@@ -1,18 +1,23 @@
-import React from "react";
+import * as React from 'react';
 import BottomNav from "./bottomNav";
 import { 
     BrowserRouter as Router,
     Outlet,
     Switch,
-    useParams 
+    useLocation
 } from "react-router-dom";
 
+const sendPageView = (eventCategory, eventAction) => {
+    ga('send', 'pageview', { 'page': window.location.pathname });
+};
 
 
-//  use the  userParams hook to set the value of the bottom nav based on page path
 
 const Home = (props) => {
-    
+    let location = useLocation();
+    React.useEffect(() => {
+        sendPageView('send', 'pageview');
+      }, [location]);
 
     return (
         <div>
