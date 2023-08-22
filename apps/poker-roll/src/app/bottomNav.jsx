@@ -4,7 +4,7 @@ import {
     Outlet,
     Switch,
     useLocation,
-    useHistory
+    useNavigate
 } from "react-router-dom";
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -15,10 +15,10 @@ import PaidIcon from '@mui/icons-material/Paid';
 
 export default function BottomNav() {
         const location = useLocation();
-        const history = useHistory();
+        const navigate = useNavigate();
     
         const handleNavigation = (newValue) => {
-            history.push(newValue);
+            navigate(newValue);
         };
     
     return (
