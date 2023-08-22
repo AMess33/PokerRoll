@@ -9,11 +9,7 @@ import {
 
 
 const Home = (props) => {
-    let location = useLocation();
-    React.useEffect(() => {
-        const currentPath = location.pathname;
-        console.log("Current pathname:", currentPath);
-      }, [location]);
+    
 
     return (
         <div>
