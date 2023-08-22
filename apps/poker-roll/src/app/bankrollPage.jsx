@@ -5,7 +5,9 @@ const Bankroll = (props) => {
 
     return (
         <div>
-            <div></div>
+            <div>
+                Here is your current bankroll 
+            </div>
         </div>
     )
 }
