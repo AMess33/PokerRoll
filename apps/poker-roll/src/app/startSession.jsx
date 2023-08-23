@@ -19,11 +19,13 @@ const SessionForm = (props) => {
                 // location
                 // start time
     })
-    const [alignment, setAlignment] = React.useState('web');
+    const [alignment, setAlignment] = React.useState('cashgame');
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();};
 
     return (
         <div>
@@ -97,6 +99,7 @@ const SessionForm = (props) => {
           >
             Begin Tournament
           </Button>
+          {/* only render this form secion if cashgame toggle is active */}
           <h2>New CashGame</h2>
           <TextField
             label="Initial Buy In"
