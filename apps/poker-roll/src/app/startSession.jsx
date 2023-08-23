@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TextField, Button, Stack } from "@mui/material";
-
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const SessionForm = (props) => {
     const [formState, setFormState] = useState({
@@ -18,10 +19,25 @@ const SessionForm = (props) => {
                 // location
                 // start time
     })
+    const [alignment, setAlignment] = React.useState('web');
+
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
 
     return (
         <div>
-            <div>Enter new tournament Here</div>
+            <ToggleButtonGroup
+      color="primary"
+      value={alignment}
+      exclusive
+      onChange={handleChange}
+      aria-label="Platform"
+    >
+      <ToggleButton value="cashgame">CashGame</ToggleButton>
+      <ToggleButton value="tournament">Tournament</ToggleButton>
+      </ToggleButtonGroup>
+
         </div>
     )
 }
