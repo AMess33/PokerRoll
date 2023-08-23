@@ -6,22 +6,23 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const SessionForm = (props) => {
     const [formState, setFormState] = useState({
-        // tournament or cash
-            // if tournament 
-            // buy in
-            // tournament name
-            // casino
-            // location
-                // if cash
-                // game type
-                // buy in
-                // casino
-                // location
-                // start time
-    })
+        buyin: "",
+        game: "",
+        casino: "",
+        location: "",
+      });
+
+      const handleChange = (event) => {
+        const { name, value } = event.target;
+    
+        setFormState({
+          ...formState,
+          [name]: value,
+        });
+      };
     const [alignment, setAlignment] = React.useState('cashgame');
 
-  const handleChange = (event, newAlignment) => {
+  const handleToggleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
   const handleFormSubmit = async (event) => {
@@ -37,7 +38,7 @@ const SessionForm = (props) => {
       color="primary"
       value={alignment}
       exclusive
-      onChange={handleChange}
+      onChange={handleToggleChange}
       aria-label="Platform"
     >
       <ToggleButton value="cashgame">CashGame</ToggleButton>
