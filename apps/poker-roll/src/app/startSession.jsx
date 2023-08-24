@@ -181,7 +181,7 @@ const NewSession = (props) => {
       onChange={handleToggleChange}
       aria-label="Platform"
     >
-      <ToggleButton value="cashgame">CashGame</ToggleButton>
+      <ToggleButton value="cashgame">Cash Game</ToggleButton>
       <ToggleButton value="tournament">Tournament</ToggleButton>
       </ToggleButtonGroup>
       {/* change which stack is show depending on cashgame or tournament is selected */}
