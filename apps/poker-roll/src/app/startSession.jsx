@@ -26,7 +26,10 @@ const SessionForm = (props) => {
     setAlignment(newAlignment);
   };
   const handleFormSubmit = async (event) => {
-    event.preventDefault();};
+    event.preventDefault();
+
+    // form submit functionality
+};
 
     return (
         <div>
@@ -45,6 +48,8 @@ const SessionForm = (props) => {
       <ToggleButton value="tournament">Tournament</ToggleButton>
       </ToggleButtonGroup>
       {/* change which stack is show depending on cashgame or tournament is selected */}
+
+      
         <Stack
           spacing={2}
           direction="column"

@@ -14,10 +14,10 @@ const Home = (props) => {
 
     return (
         <div>
-            <div className="header">
+            <div className="header text-center">
                 <h1>Poker Roll</h1>
             </div>
-            <div>
+            <div className='text-center'>
                 <SessionForm />
             </div>
             <div>
