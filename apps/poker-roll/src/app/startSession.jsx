@@ -6,7 +6,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const SessionForm = (props) => {
     const [formState, setFormState] = useState({
-        buyin: "",
+        buyIn: "",
         game: "",
         casino: "",
         location: "",
@@ -34,7 +34,7 @@ const SessionForm = (props) => {
     return (
         <div>
             <form
-        className="bg-white m-4 border border-dark rounded text-dark newAccountForm"
+        className="bg-white m-4 text-dark newAccountForm"
         onSubmit={handleFormSubmit}
       >
             <ToggleButtonGroup
@@ -49,7 +49,7 @@ const SessionForm = (props) => {
       </ToggleButtonGroup>
       {/* change which stack is show depending on cashgame or tournament is selected */}
 
-      
+
         <Stack
           spacing={2}
           direction="column"
@@ -62,15 +62,15 @@ const SessionForm = (props) => {
             variant="outlined"
             name="buyIn"
             type="text"
-            value={formState.name}
+            value={formState.buyIn}
             onChange={handleChange}
             size="small"
             margin="normal"
           />
           <TextField
-            name="name"
+            name="game"
             type="text"
-            value={formState.email}
+            value={formState.game}
             label="Tournament Name"
             onChange={handleChange}
             variant="outlined"
@@ -82,7 +82,7 @@ const SessionForm = (props) => {
             variant="outlined"
             name="casino"
             type="text"
-            value={formState.password}
+            value={formState.casino}
             onChange={handleChange}
             size="small"
             margin="normal"
@@ -92,7 +92,7 @@ const SessionForm = (props) => {
             variant="outlined"
             name="location"
             type="text"
-            value={formState.password}
+            value={formState.location}
             onChange={handleChange}
             size="small"
             margin="normal"
@@ -112,15 +112,15 @@ const SessionForm = (props) => {
             variant="outlined"
             name="buyIn"
             type="text"
-            value={formState.name}
+            value={formState.buyIn}
             onChange={handleChange}
             size="small"
             margin="normal"
           />
           <TextField
-            name="name"
+            name="game"
             type="text"
-            value={formState.email}
+            value={formState.game}
             label="Game and Stakes"
             onChange={handleChange}
             variant="outlined"
@@ -132,7 +132,7 @@ const SessionForm = (props) => {
             variant="outlined"
             name="casino"
             type="text"
-            value={formState.password}
+            value={formState.casino}
             onChange={handleChange}
             size="small"
             margin="normal"
@@ -142,7 +142,7 @@ const SessionForm = (props) => {
             variant="outlined"
             name="location"
             type="text"
-            value={formState.password}
+            value={formState.location}
             onChange={handleChange}
             size="small"
             margin="normal"
