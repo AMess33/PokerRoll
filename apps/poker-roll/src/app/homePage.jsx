@@ -8,26 +8,36 @@ import {
     useLocation
 } from "react-router-dom";
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
 
 const Home = (props) => {
     
 
     return (
-        <div>
-            <div className="header text-center">
-                <h1>Poker Roll</h1>
-            </div>
-            <div className='text-center'>
-                <SessionForm />
-            </div>
+        <ThemeProvider theme={darkTheme}>
             <div>
-                <Outlet />
+                <div>
+                    <h1>Poker Roll</h1>
+                </div>
+                <div>
+                    <SessionForm />
+                </div>
+                <div>
+                    <Outlet />
+                </div>
+                <div>
+                    <BottomNav />
+                </div>
             </div>
-            <div>
-                <BottomNav />
-            </div>
-        </div>
-    )
+        </ThemeProvider>    
+            )
             
 };
 

@@ -34,7 +34,6 @@ const SessionForm = (props) => {
     return (
         <div>
             <form
-        className="bg-white m-4 text-dark newAccountForm"
         onSubmit={handleFormSubmit}
       >
             <ToggleButtonGroup
