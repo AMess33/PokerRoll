@@ -8,20 +8,19 @@ import {
     useLocation
 } from "react-router-dom";
 
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const darkTheme = createTheme({
-    palette: {
-      mode: 'dark',
-    },
-  });
+// const darkTheme = createTheme({
+//     palette: {
+//       mode: 'dark',
+//     },
+//   });
 
 
 const Home = (props) => {
     
 
     return (
-        <ThemeProvider theme={darkTheme}>
             <div>
                 <div>
                     <h1>Poker Roll</h1>
@@ -36,7 +35,6 @@ const Home = (props) => {
                     <BottomNav />
                 </div>
             </div>
-        </ThemeProvider>    
             )
             
 };
