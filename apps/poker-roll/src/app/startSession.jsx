@@ -158,10 +158,10 @@ function TournamentForm(){
 }
 const NewSession = (props) => {
     
-    const [alignment, setAlignment] = React.useState('cashgame');
+    const [gameType, setGameType] = React.useState('cashgame');
 
-  const handleToggleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const handleToggleChange = (event, newGameType) => {
+    setGameType(newGameType);
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -176,7 +176,7 @@ const NewSession = (props) => {
       >
             <ToggleButtonGroup
       color="primary"
-      value={alignment}
+      value={gameType}
       exclusive
       onChange={handleToggleChange}
       aria-label="Platform"
@@ -185,7 +185,7 @@ const NewSession = (props) => {
       <ToggleButton value="tournament">Tournament</ToggleButton>
       </ToggleButtonGroup>
       {/* change which stack is show depending on cashgame or tournament is selected */}
-      { alignment === "cashgame" ? <CashGameForm/> : <TournamentForm/>}  
+      { gameType === "cashgame" ? <CashGameForm/> : <TournamentForm/>}  
 
        
       </form>
