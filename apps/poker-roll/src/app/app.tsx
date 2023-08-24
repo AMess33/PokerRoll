@@ -3,11 +3,12 @@ import styles from './app.module.css';
 
 import NxWelcome from './nx-welcome';
 
+
 export function App() {
   return (
-    <div>
-      <NxWelcome title="poker-roll" />
-    </div>
+      <div>
+        <NxWelcome title="poker-roll" />
+      </div>
   );
 }
 
