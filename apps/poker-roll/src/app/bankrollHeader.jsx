@@ -9,11 +9,11 @@ const BankrollHeader = (props) => {
     return (
         <div>
             <Card sx={{ maxWidth: 345 }}>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
                             Current BankRoll: $0.00
-                        </Typography>
-                    </CardContent>    
+                    </Typography>
+                </CardContent>    
             </Card>
         </div>
     )
