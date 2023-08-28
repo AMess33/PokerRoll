@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
 import SessionForm from './startSession';
-import BankrollHeader from './bankrollPage';
+import BankrollHeader from './bankrollHeader';
 import { 
     BrowserRouter as Router,
     Outlet,

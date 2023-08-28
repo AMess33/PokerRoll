@@ -1,21 +1,12 @@
 import React from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const BankrollHeader = (props) => {
+
+const Bankroll = (props) => {
 
     return (
         <div>
-            <Card sx={{ maxWidth: 345 }}>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            Current BankRoll: $0.00
-                        </Typography>
-                    </CardContent>    
-            </Card>
+            <div>BankRoll Page</div>
         </div>
     )
 }
-export default BankrollHeader;
+export default Bankroll;
