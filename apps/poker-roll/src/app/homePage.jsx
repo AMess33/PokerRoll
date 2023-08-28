@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
 import SessionForm from './startSession';
-import Bankroll from './bankrollPage';
+import BankrollHeader from './bankrollPage';
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -27,7 +27,7 @@ const Home = (props) => {
                     <h1>Poker Roll</h1>
                 </div>
                 <div className='mainContent'>
-                    <Bankroll />
+                    <BankrollHeader />
                 </div>
                 <div>
                     <Outlet />
