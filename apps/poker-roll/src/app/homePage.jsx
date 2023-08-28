@@ -26,11 +26,8 @@ const Home = (props) => {
                 <div>
                     <h1>Poker Roll</h1>
                 </div>
-                <div>
+                <div className='mainContent'>
                     <Bankroll />
-                </div>
-                <div>
-                    <SessionForm />
                 </div>
                 <div>
                     <Outlet />
