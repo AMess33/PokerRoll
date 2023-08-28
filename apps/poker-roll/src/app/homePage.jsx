@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
 import SessionForm from './startSession';
+import Bankroll from './bankrollPage';
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -24,6 +25,9 @@ const Home = (props) => {
             <div>
                 <div>
                     <h1>Poker Roll</h1>
+                </div>
+                <div>
+                    <Bankroll />
                 </div>
                 <div>
                     <SessionForm />
