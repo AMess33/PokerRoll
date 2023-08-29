@@ -6,8 +6,10 @@ import Container from '@mui/material/Container';
 function PastSession(){
     return (
         <div>
+            <Container maxWidth="sm">
             {/* show info of previous sessions */}
             {/* date/ location/ game type/ plus/minus of session */}
+            </Container>
         </div>
     )
 }
@@ -21,6 +23,7 @@ const Bankroll = (props) => {
                 {/* display a graph of bankroll change over time */}
                 {/* buttons to change timeframe */}
                 {/* past month/ 6 months/ ytd/ all time */}
+                <PastSession />
             </Container>
         </div>
     )
