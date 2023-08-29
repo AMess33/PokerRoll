@@ -2,6 +2,15 @@ import React from "react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
+
+function PastSession(){
+    return (
+        <div>
+            {/* show info of previous sessions */}
+            {/* date/ location/ game type/ plus/minus of session */}
+        </div>
+    )
+}
 const Bankroll = (props) => {
 
     return (
