@@ -8,6 +8,10 @@ const Bankroll = (props) => {
         <div>
             <Container maxWidth="sm">
                 <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} />
+                {/* Current Bankroll amount at top */}
+                {/* display a graph of bankroll change over time */}
+                {/* buttons to change timeframe */}
+                {/* past month/ 6 months/ ytd/ all time */}
             </Container>
         </div>
     )
