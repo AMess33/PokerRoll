@@ -3,12 +3,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 
-function PastSession(){
+function PastSession(props){
     return (
         <div>
             <Container maxWidth="sm">
                 <Box>
-                    <H4>Date</H4>
+                    <h4>Date</h4>
                     <p>GAME Played</p>
                     <span>+- result</span>
                 </Box>
@@ -23,7 +23,7 @@ const Bankroll = (props) => {
     return (
         <div>
             <Container maxWidth="sm">
-                <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} />
+                <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }} />
                 {/* Current Bankroll amount at top */}
                 {/* display a graph of bankroll change over time */}
                 {/* buttons to change timeframe */}
