@@ -173,23 +173,21 @@ const NewSession = (props) => {
         <div>
             <form
         onSubmit={handleFormSubmit}
-      >
-            <ToggleButtonGroup
-      color="primary"
-      value={gameType}
-      exclusive
-      onChange={handleToggleChange}
-      aria-label="Platform"
-    >
-      <ToggleButton value="cashgame">Cash Game</ToggleButton>
-      <ToggleButton value="tournament">Tournament</ToggleButton>
-      </ToggleButtonGroup>
-      {/* change which stack is show depending on cashgame or tournament is selected */}
-      { gameType === "cashgame" ? <CashGameForm/> : <TournamentForm/>}  
-
-       
-      </form>
-        </div>
+            >
+              <ToggleButtonGroup
+                color="primary"
+                value={gameType}
+                exclusive
+                onChange={handleToggleChange}
+                aria-label="Platform"
+              >
+                <ToggleButton value="cashgame">Cash Game</ToggleButton>
+                <ToggleButton value="tournament">Tournament</ToggleButton>
+              </ToggleButtonGroup>
+                {/* change which stack is show depending on cashgame or tournament is selected */}
+                { gameType === "cashgame" ? <CashGameForm/> : <TournamentForm/>}  
+              </form>
+          </div>
     )
 }
 export default NewSession;
