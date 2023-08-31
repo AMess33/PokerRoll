@@ -7,6 +7,11 @@ function PastSession(){
     return (
         <div>
             <Container maxWidth="sm">
+                <Box>
+                    <H4>Date</H4>
+                    <p>GAME Played</p>
+                    <span>+- result</span>
+                </Box>
             {/* show info of previous sessions */}
             {/* date/ location/ game type/ plus/minus of session */}
             </Container>
