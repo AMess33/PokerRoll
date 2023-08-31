@@ -13,6 +13,8 @@ const BankrollHeader = (props) => {
                     <Typography gutterBottom variant="h5" component="div">
                             Current BankRoll: $0.00
                     </Typography>
+                    <Button variant="text">Add</Button>
+                    <Button variant="text">Subtract</Button>
                 </CardContent>    
             </Card>
         </div>
