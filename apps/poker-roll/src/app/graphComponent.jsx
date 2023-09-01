@@ -2,8 +2,62 @@ import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
 
+const data = {
+    "id": "japan",
+    "color": "hsl(68, 70%, 50%)",
+    "data": [
+      {
+        "x": "plane",
+        "y": 131
+      },
+      {
+        "x": "helicopter",
+        "y": 277
+      },
+      {
+        "x": "boat",
+        "y": 204
+      },
+      {
+        "x": "train",
+        "y": 180
+      },
+      {
+        "x": "subway",
+        "y": 103
+      },
+      {
+        "x": "bus",
+        "y": 87
+      },
+      {
+        "x": "car",
+        "y": 61
+      },
+      {
+        "x": "moto",
+        "y": 54
+      },
+      {
+        "x": "bicycle",
+        "y": 201
+      },
+      {
+        "x": "horse",
+        "y": 21
+      },
+      {
+        "x": "skateboard",
+        "y": 200
+      },
+      {
+        "x": "others",
+        "y": 186
+      }
+    ]
+  };
 
-const Graph = ({ data /* see data tab */ }) => {
+const Graph = ({ data }) => {
     return (
         <ResponsiveLine
             data={data}
