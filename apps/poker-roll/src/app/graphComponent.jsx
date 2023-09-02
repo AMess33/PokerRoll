@@ -2,7 +2,7 @@ import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
 
-const data = {
+const sampleData = {
     "id": "japan",
     "color": "hsl(68, 70%, 50%)",
     "data": [
@@ -60,7 +60,7 @@ const data = {
 const Graph = ({ data }) => {
     return (
         <ResponsiveLine
-            data={data}
+            data={sampleData.data}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
