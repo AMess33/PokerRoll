@@ -38,22 +38,6 @@ const sampleData = [
       {
         "x": "moto",
         "y": 54
-      },
-      {
-        "x": "bicycle",
-        "y": 201
-      },
-      {
-        "x": "horse",
-        "y": 21
-      },
-      {
-        "x": "skateboard",
-        "y": 200
-      },
-      {
-        "x": "others",
-        "y": 186
       }
     ],
   },
@@ -92,22 +76,6 @@ const sampleData = [
       {
         "x": "moto",
         "y": 283
-      },
-      {
-        "x": "bicycle",
-        "y": 241
-      },
-      {
-        "x": "horse",
-        "y": 38
-      },
-      {
-        "x": "skateboard",
-        "y": 278
-      },
-      {
-        "x": "others",
-        "y": 129
       }
     ]
   }
@@ -128,6 +96,7 @@ const Graph = ({ data }) => {
                 reverse: false
             }}
             yFormat=" >-.2f"
+            curve="natural"
             axisTop={null}
             axisRight={null}
             axisBottom={{
