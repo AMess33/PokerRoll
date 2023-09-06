@@ -2,8 +2,11 @@ import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
 
-const sampleData = {
-     data: [
+const sampleData = [
+  {
+    "id": "July",
+    "color": "hsl(14, 70%, 50%)",
+    "data": [
       {
         "x": "plane",
         "y": 131
@@ -52,13 +55,69 @@ const sampleData = {
         "x": "others",
         "y": 186
       }
+    ],
+  },
+  {
+    "id": "france",
+    "color": "hsl(109, 70%, 50%)",
+    "data": [
+      {
+        "x": "plane",
+        "y": 232
+      },
+      {
+        "x": "helicopter",
+        "y": 168
+      },
+      {
+        "x": "boat",
+        "y": 28
+      },
+      {
+        "x": "train",
+        "y": 18
+      },
+      {
+        "x": "subway",
+        "y": 18
+      },
+      {
+        "x": "bus",
+        "y": 75
+      },
+      {
+        "x": "car",
+        "y": 41
+      },
+      {
+        "x": "moto",
+        "y": 283
+      },
+      {
+        "x": "bicycle",
+        "y": 241
+      },
+      {
+        "x": "horse",
+        "y": 38
+      },
+      {
+        "x": "skateboard",
+        "y": 278
+      },
+      {
+        "x": "others",
+        "y": 129
+      }
     ]
-  };
+  }
+]
+
 
 const Graph = ({ data }) => {
     return (
         <ResponsiveLine
-            data={sampleData.data}
+            data={sampleData}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
