@@ -3,9 +3,7 @@ import React from "react";
 import { ResponsiveLine } from '@nivo/line'
 
 const sampleData = {
-    "id": "japan",
-    "color": "hsl(68, 70%, 50%)",
-    "data": [
+     data: [
       {
         "x": "plane",
         "y": 131
