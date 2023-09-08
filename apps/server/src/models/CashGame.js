@@ -16,3 +16,5 @@ const sessionSchema = new Schema({
 const Session = mongoose.model('Session', sessionSchema);
 
 const handleError = (err) => console.error(err);
+
+module.exports = Session;
