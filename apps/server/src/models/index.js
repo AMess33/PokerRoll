@@ -1,5 +1,4 @@
-const Tournament = require('./tournament');
 const Bankroll = require('./bankroll');
-const CashGame = require('./CashGame');
+const Session = require('./Session');
 
-module.exports = { Tournament, Bankroll, CashGame };
+module.exports = { Bankroll, Session };
