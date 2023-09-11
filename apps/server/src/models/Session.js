@@ -2,10 +2,26 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const sessionSchema = new Schema({
-  game: String,
-  title: String,
-  casino: String,
-  location: String,
+  game: {
+    type: String,
+    required: true,
+    max_length: 50,
+  },
+  title: {
+    type: String,
+    required: true,
+    max_length: 50,
+  },
+  casino: {
+    type: String,
+    required: true,
+    max_length: 50,
+  },
+  location: {
+    type: String,
+    required: true,
+    max_length: 50,
+  },
   inFor: Number,
   outFor: Number,
   // duration of session, difference of end and start times
