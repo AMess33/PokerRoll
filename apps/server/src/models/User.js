@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Session = require('./Session');
+const Bankroll = require('./Bankroll');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -22,6 +24,8 @@ const userSchema = new Schema({
     required: true,
     minLength: 5,
   },
+  bankroll: Bankroll,
+  sessions: [Session],
 });
 
 const User = mongoose.model('User', userSchema);
