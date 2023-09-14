@@ -27,7 +27,16 @@ const sessionSchema = new Schema({
   // duration of session, difference of end and start times
   date: { type: Date, default: Date.now },
   plusMinus: Number,
+  note: String,
 });
+
+// start new session
+// require game, title, casino, location, infor, start time
+
+// update session
+// add outFor number, end time, note
+
+// session should update bankroll total when finished
 
 const Session = mongoose.model('Session', sessionSchema);
 

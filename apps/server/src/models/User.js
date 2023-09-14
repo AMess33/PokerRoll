@@ -28,6 +28,9 @@ const userSchema = new Schema({
   sessions: [Session],
 });
 
+// add new user
+//
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
