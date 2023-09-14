@@ -24,8 +24,10 @@ const sessionSchema = new Schema({
   },
   inFor: Number,
   outFor: Number,
+  startTime: { type: Date, default: Date.now },
+  endTime: { type: Date, default: Date.now },
+  duration: Number,
   // duration of session, difference of end and start times
-  date: { type: Date, default: Date.now },
   plusMinus: Number,
   note: String,
 });
