@@ -24,8 +24,16 @@ const userSchema = new Schema({
     required: true,
     minLength: 5,
   },
-  bankroll: Bankroll,
-  sessions: [Session],
+  bankroll: {
+    type: Schema.Types.ObjectId,
+    ref: 'Bankroll',
+  },
+  sessions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Session',
+    },
+  ],
 });
 
 // add new user
