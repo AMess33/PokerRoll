@@ -22,7 +22,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minLength: 5,
+    minLength: 8,
     match: [
       /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
       'Must contain at least 8 characters with one lowercase and one uppercase letter',
