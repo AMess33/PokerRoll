@@ -25,7 +25,7 @@ const userSchema = new Schema({
     minLength: 8,
     match: [
       /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-      'Must contain at least 8 characters with one lowercase and one uppercase letter',
+      'Must contain at least 8 characters with 1 lowercase and 1 uppercase letter',
     ],
   },
   bankroll: {
