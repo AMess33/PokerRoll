@@ -22,4 +22,5 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  //   delete all users session and bankroll when user deleted?
 };

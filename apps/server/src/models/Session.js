@@ -38,7 +38,7 @@ const sessionSchema = new Schema({
 // update session
 // add outFor number, end time, note
 
-// session should update bankroll total when finished
+// session should update bankroll total when finished, and calculate plus minus for the session
 
 const Session = mongoose.model('Session', sessionSchema);
 
