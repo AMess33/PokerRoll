@@ -38,6 +38,7 @@ module.exports = {
       console.log(session);
       res.json('Session Updated Sucessfully');
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
