@@ -5,6 +5,7 @@ const bankrollSchema = new Schema({
   bankroll: {
     type: Number,
     required: true,
+    default: 0,
   },
 });
 
