@@ -6,9 +6,12 @@ const { User, Session } = require('../models');
 // dont think i want the ability to delete a session
 
 module.exports = {
-    async createSession(req, res) {
-        try{
-            
-        }
+  async createSession(req, res) {
+    try {
+      const session = await Session.create(req.body);
+      res.json(session);
+    } catch (err) {
+      res.status(500).json(err);
     }
-}
+  },
+};
