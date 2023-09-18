@@ -19,9 +19,10 @@ module.exports = {
           message: 'Session created, but found no user with that ID',
         });
       }
-
+      console.log(session);
       res.json('New Session started');
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -34,6 +35,8 @@ module.exports = {
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
       }
+      console.log(session);
+      res.json('Session Updated Sucessfully');
     } catch (err) {
       res.status(500).json(err);
     }
