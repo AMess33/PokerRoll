@@ -41,7 +41,10 @@ const userSchema = new Schema({
 });
 
 // add new user
-//
+// delete user
+// add session
+// update session
+// update bankroll
 
 const User = mongoose.model('User', userSchema);
 
