@@ -1,4 +1,4 @@
-const router = require('express').Router();
+import { router } from '../../main';
 
 const { createUser } = require('../../controllers/userController');
 const { updateBankroll } = require('../../controllers/bankrollController');

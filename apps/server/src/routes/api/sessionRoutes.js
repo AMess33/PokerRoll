@@ -1,4 +1,4 @@
-import router from './userRoutes';
+import router from '../../main';
 
 const {
   createSession,
