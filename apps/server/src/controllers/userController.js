@@ -23,4 +23,5 @@ module.exports = {
     }
   },
   //   delete all users session and bankroll when user deleted?
+  // auth middleware needed to verify user/password
 };
