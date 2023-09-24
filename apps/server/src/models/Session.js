@@ -24,6 +24,7 @@ const sessionSchema = new Schema({
   },
   inFor: Number,
   outFor: Number,
+  // format start and end times for easy calculations in duration and plus minus (ie. 1.5 hours/ 1 decimal)
   startTime: { type: Date, default: Date.now },
   endTime: { type: Date, default: Date.now },
   duration: Number,
