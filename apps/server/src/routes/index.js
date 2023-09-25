@@ -7,12 +7,12 @@
 
 // move this code to server/src/main.js
 const router = require('express').Router();
-const { createUser, deleteUser } = require('../../controllers/userController');
-const { updateBankroll } = require('../../controllers/bankrollController');
+const { createUser, deleteUser } = require('../controllers/userController');
+const { updateBankroll } = require('../controllers/bankrollController');
 const {
   createSession,
   updateSession,
-} = require('../../controllers/sessionContorller');
+} = require('../controllers/sessionContorller');
 
 // test route
 router.route('/').get((req, res) => {
