@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const mongoose = require('mongoose');
 
 module.exports = {
   // create a new user
@@ -13,7 +14,9 @@ module.exports = {
   // update a user
   async updateUser(req, res) {
     try {
-      const user = await User.findOneAndUpdate({ _id: req.params.userId });
+      const user = await User.findOneAndUpdate({
+        _id: mongoose.Types.ObjectId(req.body.id),
+      });
 
       if (!user) {
         return res
@@ -27,8 +30,10 @@ module.exports = {
   // Delete a user
   async deleteUser(req, res) {
     try {
-      const user = await User.findOneAndDelete({ _id: req.params.userId });
-
+      const user = await User.findOneAndDelete({
+        _id: mongoose.Types.ObjectId(req.body.id),
+      });
+      console.log(req.body.id);
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' });
       }

@@ -25,8 +25,8 @@ router.route('/user/session').post(createSession);
 
 router.route('/user/session').put(updateSession);
 router.route('/user').post(createUser);
-router.route('/user').delete(deleteUser);
+router.route('/user/:id').delete(deleteUser);
 
-router.route('/user').put(updateUser);
+router.route('/user/:id').put(updateUser);
 
 module.exports = router;
