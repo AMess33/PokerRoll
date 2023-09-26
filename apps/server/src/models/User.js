@@ -29,8 +29,9 @@ const userSchema = new Schema({
     ],
   },
   bankroll: {
-    type: Schema.Types.ObjectId,
-    ref: 'Bankroll',
+    type: Number,
+    required: true,
+    default: 0,
   },
   sessions: [
     {
