@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Session = require('./Session');
-const Bankroll = require('./Bankroll');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
