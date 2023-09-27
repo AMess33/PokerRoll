@@ -1,4 +1,4 @@
-const Bankroll = require('./bankroll');
 const Session = require('./Session');
+const User = require('./User');
 
-module.exports = { Bankroll, Session };
+module.exports = { Session, User };

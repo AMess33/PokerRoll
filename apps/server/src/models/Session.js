@@ -24,10 +24,22 @@ const sessionSchema = new Schema({
   },
   inFor: Number,
   outFor: Number,
+  // format start and end times for easy calculations in duration and plus minus (ie. 1.5 hours/ 1 decimal)
+  startTime: { type: Date, default: Date.now },
+  endTime: { type: Date, default: Date.now },
+  duration: Number,
   // duration of session, difference of end and start times
-  date: { type: Date, default: Date.now },
   plusMinus: Number,
+  note: String,
 });
+
+// start new session
+// require game, title, casino, location, infor, start time
+
+// update session
+// add outFor number, end time, note
+
+// session should update bankroll total when finished, and calculate plus minus for the session
 
 const Session = mongoose.model('Session', sessionSchema);
 
