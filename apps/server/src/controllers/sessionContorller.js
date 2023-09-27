@@ -1,5 +1,5 @@
 const { User, Session } = require('../models');
-
+const mongoose = require('mongoose');
 // get logged in users sessions
 // create session
 // update session
@@ -10,7 +10,7 @@ module.exports = {
     try {
       const session = await Session.create(req.body);
       const user = await User.findOneAndUpdate(
-        { _id: req.body.userId },
+        { _id: new mongoose.Types.ObjectId(req.body.userId) },
         { $addToSet: { sessions: session._id } },
         { new: true }
       );
@@ -29,8 +29,9 @@ module.exports = {
   async updateSession(req, res) {
     try {
       const session = await Session.findOneAndUpdate(
-        { _id: req.params.sessionId },
-        { $set: req.body }
+        { _id: new mongoose.Types.ObjectId(req.body.id) },
+        { $set: req.body },
+        { new: true }
       );
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
