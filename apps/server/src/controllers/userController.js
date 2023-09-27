@@ -14,16 +14,22 @@ module.exports = {
   // update a user
   async updateUser(req, res) {
     try {
-      const user = await User.findOneAndUpdate({
-        _id: mongoose.Types.ObjectId(req.body.id),
-      });
+      const user = await User.findOneAndUpdate(
+        {
+          _id: new mongoose.Types.ObjectId(req.body.id),
+        },
+        { $set: req.body },
+        { new: true }
+      );
 
       if (!user) {
         return res
           .status(404)
           .json({ message: 'No user found, unable to update' });
       }
+      return res.json(user);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -31,13 +37,16 @@ module.exports = {
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndDelete({
-        _id: mongoose.Types.ObjectId(req.body.id),
+        _id: new mongoose.Types.ObjectId(req.body.id),
       });
       console.log(req.body.id);
+
       if (!user) {
         return res.status(404).json({ message: 'No user with that ID' });
       }
+      return res({ message: 'User Deleted' });
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
