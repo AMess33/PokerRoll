@@ -13,7 +13,7 @@ import {
     useMutation,
     userQueryClient,
     QueryClient,
-  QueryClientProvider,
+    QueryClientProvider,
 } from '@tanstack/react-query';
 import {
     createUser,
@@ -23,9 +23,21 @@ import {
     updateSession
 } from "../../../server/src/routes/index";
 
+const queryClient = new QueryClient()
+function PokerRoll() {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Home />
+      </QueryClientProvider>
+    )
+  }
+function Home() {
+    // access the client
+    const queryClient = useQueryClient()
+    // queries 
+    const query = useQuery({ queryKey: ['sessions'], queryFn: getUser })
+    // mutations
 
-const Home = (props) => {
-    
 
     return (
             <div>
@@ -47,4 +59,4 @@ const Home = (props) => {
 };
 
 
-export default Home;
+export default PokerRoll;
