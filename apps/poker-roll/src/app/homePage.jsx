@@ -22,6 +22,7 @@ import {
     createSession,
     updateSession
 } from "../../../server/src/routes/index";
+import { startSession } from 'apps/server/src/models/Session';
 
 const queryClient = new QueryClient()
 function PokerRoll() {
@@ -37,7 +38,12 @@ function Home() {
     // queries 
     const query = useQuery({ queryKey: ['sessions'], queryFn: getUser })
     // mutations
-
+    const mutation = useMutation({
+        mutationFn: createSession,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['sessions']})
+        },
+    })
 
     return (
             <div>
