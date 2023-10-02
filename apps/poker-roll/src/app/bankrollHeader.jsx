@@ -11,7 +11,7 @@ const BankrollHeader = (props) => {
             <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                            Current BankRoll: {props.bankroll}
+                            Current BankRoll: {props.user.bankroll}
                     </Typography>
                     <Button variant="text">Add</Button>
                     <Button variant="text">Subtract</Button>

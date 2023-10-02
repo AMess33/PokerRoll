@@ -16,6 +16,7 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query';
 import {
+    getUser,
     createUser,
     updateUser,
     deleteUser,
@@ -36,7 +37,7 @@ function Home() {
     // access the client
     const queryClient = useQueryClient()
     // queries 
-    const query = useQuery({ queryKey: ['sessions'], queryFn: getUser })
+    const query = useQuery({ queryKey: ['user'], queryFn: getUser })
     // mutations
     const mutation = useMutation({
         mutationFn: createSession,
