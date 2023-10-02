@@ -5,17 +5,22 @@ import Container from '@mui/material/Container';
 
 
 function PastSession(props){
+    const query = useQuery({ queryKey: ['sessions'], queryFn: getSessions })
+
     return (
         <div>
+            {query.data?.map((session) => (
             <Container maxWidth="sm">
                 <Box>
-                    <h4>Date</h4>
-                    <p>GAME Played</p>
-                    <span>+- result</span>
+                    <h4>session.startTime</h4>
+                    <p>session.game</p>
+                    <p>session.casino</p>
+                    <span>session.plusMinus</span>
                 </Box>
             {/* show info of previous sessions */}
             {/* date/ location/ game type/ plus/minus of session */}
             </Container>
+            ))}
         </div>
     )
 }
