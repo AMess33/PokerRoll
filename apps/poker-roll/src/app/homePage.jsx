@@ -15,15 +15,6 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
-import {
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser,
-    createSession,
-    updateSession
-} from "../../../server/src/routes/index";
-import { startSession } from 'apps/server/src/models/Session';
 
 const queryClient = new QueryClient()
 function PokerRoll() {
@@ -34,17 +25,6 @@ function PokerRoll() {
     )
   }
 function Home() {
-    // access the client
-    const queryClient = useQueryClient()
-    // queries 
-    const query = useQuery({ queryKey: ['user'], queryFn: getUser })
-    // mutations
-    const mutation = useMutation({
-        mutationFn: createSession,
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['sessions']})
-        },
-    })
 
     return (
             <div>
