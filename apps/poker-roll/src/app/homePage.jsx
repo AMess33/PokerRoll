@@ -1,17 +1,11 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
-import SessionForm from './startSession';
 import BankrollHeader from './bankrollHeader';
 import { 
     BrowserRouter as Router,
     Outlet,
-    Switch,
-    useLocation
 } from "react-router-dom";
 import {
-    useQuery,
-    useMutation,
-    userQueryClient,
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
