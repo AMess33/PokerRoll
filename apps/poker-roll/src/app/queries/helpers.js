@@ -5,6 +5,7 @@ import {
   createSession,
   updateSession,
   deleteUser,
+  updateBankroll,
 } from '../my-api';
 
 export function useUser() {
@@ -42,6 +43,17 @@ export function useDeleteUser() {
 
   return useMutation({
     mutationFn: deleteUser,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+    },
+  });
+}
+
+export function useUpdateBankroll() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: updateBankroll,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user'] });
     },
