@@ -167,6 +167,7 @@ const NewSession = (props) => {
     event.preventDefault();
 
     // form submit functionality
+    useCreateSession();
 };
 
     return (
