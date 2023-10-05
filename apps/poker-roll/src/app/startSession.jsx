@@ -167,7 +167,17 @@ const NewSession = (props) => {
     event.preventDefault();
 
     // form submit functionality
-    useCreateSession();
+    const { isLoading, error, data } = useQuery({
+      queryKey: ['createSession'],
+      queryFn: () =>
+        fetch('').then(
+          (res) => res.json(),
+        ),
+    })
+  
+    if (isLoading) return 'Loading...'
+  
+    if (error) return 'An error has occurred: ' + error.message
 };
 
     return (
