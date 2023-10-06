@@ -19,8 +19,14 @@ export function useSessions() {
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
+
   return useMutation({
-    mutationFn: createSession,
+    mutationFn: (event) => {
+        event.preventDefault()
+        const data = new FormData(event.target);
+        console.log(data);
+        return fetch('http:localhost:3333/api/user/session', new FormData(event.target))
+      },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessions'] });
     },

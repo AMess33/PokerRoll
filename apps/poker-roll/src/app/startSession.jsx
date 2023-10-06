@@ -4,6 +4,7 @@ import { TextField, Button, Stack } from "@mui/material";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useCreateSession } from "./queries/helpers";
+
 function CashGameForm(){
     const [formState, setFormState] = useState({
         buyIn: "",
@@ -158,26 +159,16 @@ function TournamentForm(){
 }
 const NewSession = (props) => {
     
-    const [gameType, setGameType] = React.useState('cashgame');
+  const [gameType, setGameType] = React.useState('cashgame');
+
+  const mutation = useCreateSession();
 
   const handleToggleChange = (event, newGameType) => {
     setGameType(newGameType);
   };
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
+    mutation.mutate(event)
     // form submit functionality
-    const { isLoading, error, data } = useQuery({
-      queryKey: ['createSession'],
-      queryFn: () =>
-        fetch('').then(
-          (res) => res.json(),
-        ),
-    })
-  
-    if (isLoading) return 'Loading...'
-  
-    if (error) return 'An error has occurred: ' + error.message
 };
 
     return (
