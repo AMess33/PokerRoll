@@ -1,19 +1,16 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import {
-  getUser,
-  getSessions,
-  createSession,
-  updateSession,
-  deleteUser,
-  updateBankroll,
-} from '../my-api';
+
 
 export function useUser() {
-  return useQuery({ queryKey: ['user'], queryFn: getUser });
+  return useQuery({ queryKey: ['user'], queryFn: () => {
+    return fetch('http://localhost:3333/user').then( (res) => res.json(),);
+  } });
 }
 
 export function useSessions() {
-  return useQuery({ queryKey: ['sessions'], queryFn: getSessions });
+  return useQuery({ queryKey: ['sessions'], queryFn: () => {
+    return fetch('http://localhost:3333/user/session').then( (res) => res.json(),)
+  } });
 }
 
 export function useCreateSession() {
@@ -25,7 +22,7 @@ export function useCreateSession() {
         event.preventDefault()
         const data = new FormData(event.target);
         console.log(data);
-        return fetch('http:localhost:3333/api/user/session', new FormData(event.target))
+        return fetch('http://localhost:3333/api/user/session', new FormData(event.target))
       },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessions'] });
