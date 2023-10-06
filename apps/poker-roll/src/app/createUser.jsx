@@ -152,4 +152,40 @@ function LoginForm(){
           </form>
         </div>
       )
+};
+
+const User = (props) => {
+    const [userType, setUserType] = React.useState('signup');
+
+    const handleToggleChange = (event, newUserType) => {
+        setUserType(newUserType);
+    };
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        // form submit functionality
+    };
+
+    return (
+        <div>
+            <form 
+            onSubmit={handleFormSubmit}
+            >
+                <ToggleButtonGroup
+                color="primary"
+                value={userType}
+                exclusive
+                onChange={handleToggleChange}
+                aria-lable="Platform"
+                >
+                    <ToggleButton value="signup">Create an Account</ToggleButton>
+                    <ToggleButton value="login">Login to your Account</ToggleButton>
+                </ToggleButtonGroup>
+                {/* {show signup or login form based on user selection} */}
+                { userType === "login" ? <LoginForm/> : <SignUpForm/>}
+            </form>
+        </div>
+    )
 }
+
+export default UserPage;
