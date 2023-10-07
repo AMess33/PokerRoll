@@ -11,7 +11,7 @@ function SignUpForm(){
         email: "",
         password: "",
     });
-
+    const mutation = useCreateUser();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -22,10 +22,6 @@ function SignUpForm(){
         });
       };
 
-      const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        // create user functionality on form submit
       };
     return (
         <div className="newAccountFormContainer">
