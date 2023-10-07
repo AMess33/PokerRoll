@@ -22,13 +22,9 @@ function SignUpForm(){
         });
       };
 
-      };
     return (
         <div className="newAccountFormContainer">
-          <form
-            className="bg-white m-4 border border-dark rounded text-dark newAccountForm"
-            onSubmit={handleFormSubmit}
-          >
+          
             <Stack
               spacing={2}
               direction="column"
@@ -68,7 +64,8 @@ function SignUpForm(){
               />
     
               <Button
-                type="submit"
+                type="button"
+                onClick={() => {(mutation.mutate(formState))}}
                 size="small"
                 variant="contained"
                 color="primary"
@@ -76,10 +73,9 @@ function SignUpForm(){
                 Submit
               </Button>
             </Stack>
-          </form>
         </div>
-      );
-    };
+      )
+};
     
 function LoginForm(){
     const [formState, setFormState] = useState({
