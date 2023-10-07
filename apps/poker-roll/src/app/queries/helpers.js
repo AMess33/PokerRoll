@@ -61,7 +61,10 @@ export function useDeleteUser() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: deleteUser,
+    mutationFn: (res, req) => {
+      console.log(req.body);
+      return fetch('http://localhost:3333/api/user', {method: "DELETE", body: JSON.stringify(req.body), headers: { "Content-Type:": "application/json",}})
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user'] });
     },
