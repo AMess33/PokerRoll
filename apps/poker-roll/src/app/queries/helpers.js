@@ -47,7 +47,7 @@ export function useUpdateSession() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/user/session', {method: 'POST', body: JSON.stringify(formState), headers: {
+      return fetch('http://localhost:3333/api/user/session', {method: 'PUT', body: JSON.stringify(formState), headers: {
         "Content-Type": "application/json",
       }})
     },
