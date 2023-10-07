@@ -75,7 +75,10 @@ export function useUpdateBankroll() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: updateBankroll,
+    mutationFn: (formState) => {
+      console.log(formState);
+      return fetch('http://localhost:3333/api/user', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user'] });
     },
