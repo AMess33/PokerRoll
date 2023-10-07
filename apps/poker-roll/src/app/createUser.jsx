@@ -181,4 +181,4 @@ const User = (props) => {
     )
 }
 
-export default UserPage;
+export default User;
