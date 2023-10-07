@@ -12,7 +12,19 @@ export function useSessions() {
     return fetch('http://localhost:3333/user/session').then( (res) => res.json(),)
   } });
 }
+export function useCreateUser() {
+  const queryClient = useQueryClient();
 
+  return useMutation({
+    mutationFn: (formState) => {
+      console.log(formState);
+      return fetch('http://localhost3333/api/user', {method: 'POST', body: JSON.stringify(formState), headers: { "Content-Type": "application/json",} })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
+    }
+  })
+}
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
