@@ -45,7 +45,12 @@ export function useUpdateSession() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: updateSession,
+    mutationFn: (formState) => {
+      console.log(formState);
+      return fetch('http://localhost:3333/api/user/session', {method: 'POST', body: JSON.stringify(formState), headers: {
+        "Content-Type": "application/json",
+      }})
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessions'] });
     },

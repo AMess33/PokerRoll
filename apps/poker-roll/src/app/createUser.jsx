@@ -70,7 +70,7 @@ function SignUpForm(){
                 variant="contained"
                 color="primary"
               >
-                Submit
+                Signup!
               </Button>
             </Stack>
         </div>
