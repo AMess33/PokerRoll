@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { TextField, Button, Stack } from "@mui/material";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { useCreateSession } from "./queries/helpers";
 
 function CashGameForm(){
     const [formState, setFormState] = useState({
@@ -11,7 +12,7 @@ function CashGameForm(){
         casino: "",
         location: "",
       });
-
+      const mutation = useCreateSession();
       const handleChange = (event) => {
         const { name, value } = event.target;
     
@@ -19,7 +20,7 @@ function CashGameForm(){
           ...formState,
           [name]: value,
         });
-      };
+      }
     return(
         <Stack
           spacing={2}
@@ -69,7 +70,8 @@ function CashGameForm(){
           margin="normal"
         />
         <Button
-          type="submit"
+          type="button"
+          onClick={() => {(mutation.mutate(formState))}}
           size="small"
           variant="contained"
           color="primary"
@@ -88,7 +90,7 @@ function TournamentForm(){
         casino: "",
         location: "",
       });
-
+      const mutation = useCreateSession();
       const handleChange = (event) => {
         const { name, value } = event.target;
     
@@ -96,7 +98,9 @@ function TournamentForm(){
           ...formState,
           [name]: value,
         });
+        
       };
+      
       return(
         <Stack
           spacing={2}
@@ -146,7 +150,8 @@ function TournamentForm(){
             margin="normal"
           />
           <Button
-            type="submit"
+            type="button"
+            onClick={() => {(mutation.mutate(formState))}}
             size="small"
             variant="contained"
             color="primary"
@@ -158,22 +163,18 @@ function TournamentForm(){
 }
 const NewSession = (props) => {
     
-    const [gameType, setGameType] = React.useState('cashgame');
+  const [gameType, setGameType] = React.useState('cashgame');
+
+  
 
   const handleToggleChange = (event, newGameType) => {
     setGameType(newGameType);
   };
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
+ 
     // form submit functionality
-};
 
     return (
         <div>
-            <form
-        onSubmit={handleFormSubmit}
-            >
               <ToggleButtonGroup
                 color="primary"
                 value={gameType}
@@ -186,7 +187,6 @@ const NewSession = (props) => {
               </ToggleButtonGroup>
                 {/* change which stack is show depending on cashgame or tournament is selected */}
                 { gameType === "cashgame" ? <CashGameForm/> : <TournamentForm/>}  
-              </form>
           </div>
     )
 }

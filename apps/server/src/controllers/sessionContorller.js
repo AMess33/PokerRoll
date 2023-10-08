@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 module.exports = {
   async createSession(req, res) {
     try {
+      console.log(req.body);
       const session = await Session.create(req.body);
       const user = await User.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(req.body.userId) },

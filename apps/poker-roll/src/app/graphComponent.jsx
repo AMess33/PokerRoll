@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
+import { useSessions, useUser } from './queries/helpers';
 
 const sampleData = [
   {
@@ -83,6 +84,8 @@ const sampleData = [
 
 
 const Graph = ({ data }) => {
+  const sessionsQuery = useSessions()
+
     return (
         <ResponsiveLine
             data={sampleData}

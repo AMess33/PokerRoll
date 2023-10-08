@@ -7,7 +7,7 @@ const sessionSchema = new Schema({
     required: true,
     max_length: 50,
   },
-  title: {
+  buyIn: {
     type: String,
     required: true,
     max_length: 50,
