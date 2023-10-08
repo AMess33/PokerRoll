@@ -3,13 +3,13 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useUser() {
   return useQuery({ queryKey: ['user'], queryFn: () => {
-    return fetch('http://localhost:3333/user').then( (res) => res.json(),);
+    return fetch('http://localhost:3333/api/user').then( (res) => res.json(),);
   } });
 }
 
 export function useSessions() {
   return useQuery({ queryKey: ['sessions'], queryFn: () => {
-    return fetch('http://localhost:3333/user/session').then( (res) => res.json(),)
+    return fetch('http://localhost:3333/api/user/session').then( (res) => res.json(),)
   } });
 }
 export function useCreateUser() {
