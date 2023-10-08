@@ -10,12 +10,29 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
+import {
+    ClerkProvider,
+    SignedIn,
+    SignedOut,
+    UserButton,
+    useUser,
+    RedirectToSignIn,
+  } from "@clerk/clerk-react";
 
+if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key")
+  }
+  const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient()
+
 function PokerRoll() {
     return (
       <QueryClientProvider client={queryClient}>
-        <Home />
+        <ClerkProvider publishableKey={clerkPubKey}>
+            <SignedIn>
+                <Home />
+            </SignedIn>
+        </ClerkProvider>
       </QueryClientProvider>
     )
   }
