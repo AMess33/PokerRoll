@@ -32,6 +32,9 @@ function PokerRoll() {
             <SignedIn>
                 <Home />
             </SignedIn>
+            <SignedOut>
+                <RedirectToSignIn />
+            </SignedOut>
         </ClerkProvider>
       </QueryClientProvider>
     )
