@@ -19,10 +19,10 @@ import {
     RedirectToSignIn,
   } from "@clerk/clerk-react";
 
-if (!process.env.REACT_APP_CLERK_PUBLISHABLE_KEY) {
+if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
   }
-  const clerkPubKey = process.env.REACT_APP_CLERK_PUBLISHABLE_KEY;
+  const clerkPubKey = process.env.NX_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient()
 
 function PokerRoll() {
@@ -34,7 +34,7 @@ function PokerRoll() {
             </SignedIn>
             <SignedOut>
                 <RedirectToSignIn />
-      </SignedOut>
+            </SignedOut>
         </ClerkProvider>
       </QueryClientProvider>
     )
