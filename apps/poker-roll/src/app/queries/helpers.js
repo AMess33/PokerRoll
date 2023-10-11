@@ -12,6 +12,12 @@ export function useSessions() {
     return fetch('http://localhost:3333/api/user/session').then( (res) => res.json(),)
   } });
 }
+
+export function useBankroll() {
+  return useQuery({ queryKey: ['bankroll'], queryFn: () => {
+    return fetch('http://localhost:3333/api/user/bankroll').then( (res) => res.json(),)
+  }});
+}
 // export function useCreateUser() {
 //   const queryClient = useQueryClient();
 
