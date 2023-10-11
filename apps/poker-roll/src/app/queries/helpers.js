@@ -12,19 +12,19 @@ export function useSessions() {
     return fetch('http://localhost:3333/api/user/session').then( (res) => res.json(),)
   } });
 }
-export function useCreateUser() {
-  const queryClient = useQueryClient();
+// export function useCreateUser() {
+//   const queryClient = useQueryClient();
 
-  return useMutation({
-    mutationFn: (formState) => {
-      console.log(formState);
-      return fetch('http://localhost3333/api/user', {method: 'POST', body: JSON.stringify(formState), headers: { "Content-Type": "application/json",} })
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
-    }
-  })
-}
+//   return useMutation({
+//     mutationFn: (formState) => {
+//       console.log(formState);
+//       return fetch('http://localhost3333/api/user', {method: 'POST', body: JSON.stringify(formState), headers: { "Content-Type": "application/json",} })
+//     },
+//     onSuccess: () => {
+//       queryClient.invalidateQueries({ queryKey: ['users'] });
+//     }
+//   })
+// }
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
@@ -57,19 +57,19 @@ export function useUpdateSession() {
   });
 }
 
-export function useDeleteUser() {
-  const queryClient = useQueryClient();
+// export function useDeleteUser() {
+//   const queryClient = useQueryClient();
 
-  return useMutation({
-    mutationFn: (res, req) => {
-      console.log(req.body);
-      return fetch('http://localhost:3333/api/user', {method: "DELETE", body: JSON.stringify(req.body), headers: { "Content-Type:": "application/json",}})
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] });
-    },
-  });
-}
+//   return useMutation({
+//     mutationFn: (res, req) => {
+//       console.log(req.body);
+//       return fetch('http://localhost:3333/api/user', {method: "DELETE", body: JSON.stringify(req.body), headers: { "Content-Type:": "application/json",}})
+//     },
+//     onSuccess: () => {
+//       queryClient.invalidateQueries({ queryKey: ['user'] });
+//     },
+//   });
+// }
 
 export function useUpdateBankroll() {
   const queryClient = useQueryClient();
