@@ -26,6 +26,11 @@ if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
 const queryClient = new QueryClient()
 
 function PokerRoll() {
+    const {isLoaded } = useUser();
+    if (!isLoaded) {
+        return null;
+      }
+
     return (
       <QueryClientProvider client={queryClient}>
         <ClerkProvider publishableKey={clerkPubKey}>
