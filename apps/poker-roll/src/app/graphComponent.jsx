@@ -1,24 +1,29 @@
 import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
-import { useSessions, useBankroll } from './queries/helpers';
+import { useBankroll } from './queries/helpers';
 
-const graphData = useBankroll.map([
-  {
-    "id": "July",
-    "color": "hsl(14, 70%, 50%)",
-    // map over bankroll data, x will be date of update, y will be bankroll after update
-    "data": [ 
-      {
-        x: useBankroll.timestamp,
-        y: useBankroll.amount
-      },
-    ]
-  }]);
+const graphData = useEffect((props) => {
+  setSeries([{
+    id: "Bankroll",
+    data: props.data
+    .sort((r1,r2) => r1.timestamp - r2.timestamp)
+    .map(bankroll => {
+      return {
+      x: bankroll.timestamp,
+      y: bankroll.amount,
+    }
+  })}])
+    let yValues = props.data.map(d => d.value);
+    let minValue = yValues.reduce((v1, v2) => v1 > v2 ? v2 : v1);
+    let maxValue = yValues.reduce((v1, v2) => v1 > v2 ? v1 : v2);
+    setMinY(minValue - getStdDeviation(yValues));
+    setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
+  
 
 
 const Graph = ({ data }) => {
-  const sessionsQuery = useSessions()
+  const bankrollQuery = useBankroll()
 
     return (
         <ResponsiveLine
