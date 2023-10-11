@@ -1,86 +1,20 @@
 import React from "react";
 
 import { ResponsiveLine } from '@nivo/line'
-import { useSessions, useUser } from './queries/helpers';
+import { useSessions, useBankroll } from './queries/helpers';
 
-const sampleData = [
+const graphData = useBankroll.map([
   {
     "id": "July",
     "color": "hsl(14, 70%, 50%)",
-    "data": [
+    // map over bankroll data, x will be date of update, y will be bankroll after update
+    "data": [ 
       {
-        "x": "plane",
-        "y": 131
+        x: useBankroll.timestamp,
+        y: useBankroll.amount
       },
-      {
-        "x": "helicopter",
-        "y": 277
-      },
-      {
-        "x": "boat",
-        "y": 204
-      },
-      {
-        "x": "train",
-        "y": 180
-      },
-      {
-        "x": "subway",
-        "y": 103
-      },
-      {
-        "x": "bus",
-        "y": 87
-      },
-      {
-        "x": "car",
-        "y": 61
-      },
-      {
-        "x": "moto",
-        "y": 54
-      }
-    ],
-  },
-  {
-    "id": "france",
-    "color": "hsl(109, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 232
-      },
-      {
-        "x": "helicopter",
-        "y": 168
-      },
-      {
-        "x": "boat",
-        "y": 28
-      },
-      {
-        "x": "train",
-        "y": 18
-      },
-      {
-        "x": "subway",
-        "y": 18
-      },
-      {
-        "x": "bus",
-        "y": 75
-      },
-      {
-        "x": "car",
-        "y": 41
-      },
-      {
-        "x": "moto",
-        "y": 283
-      }
     ]
-  }
-]
+  }]);
 
 
 const Graph = ({ data }) => {
@@ -88,7 +22,7 @@ const Graph = ({ data }) => {
 
     return (
         <ResponsiveLine
-            data={sampleData}
+            data={graphData}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
