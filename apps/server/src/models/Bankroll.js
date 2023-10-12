@@ -10,6 +10,10 @@ const bankrollSchema = new Schema({
         type: Number,
         required: true,
         default: 0,
+    },
+    timeStamp: {
+        type: Date,
+        required: true,
     }
 });
 
