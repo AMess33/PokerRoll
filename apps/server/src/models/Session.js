@@ -22,15 +22,15 @@ const sessionSchema = new Schema({
     required: true,
     max_length: 50,
   },
-  inFor: {Number,},
-  outFor: { Number,},
+  inFor: {type: Number,},
+  outFor: { type: Number,},
   // format start and end times for easy calculations in duration and plus minus (ie. 1.5 hours/ 1 decimal)
   startTime: { type: Date, default: Date.now },
   endTime: { type: Date, },
-  duration: {Number,},
+  duration: {type: Number,},
   // duration of session, difference of end and start times
-  plusMinus: {Number,},
-  note: {String,},
+  plusMinus: {type: Number,},
+  note: {type: String,},
 });
 
 // start new session
