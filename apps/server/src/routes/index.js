@@ -7,11 +7,7 @@
 
 // move this code to server/src/main.js
 const router = require('express').Router();
-const {
-  createUser,
-  deleteUser,
-  updateUser,
-} = require('../controllers/userController');
+
 const {
   createSession,
   updateSession,
@@ -24,9 +20,6 @@ router.route('/').get((req, res) => {
 router.route('/user/session').post(createSession);
 
 router.route('/user/session').put(updateSession);
-router.route('/user').post(createUser);
-router.route('/user/').delete(deleteUser);
 
-router.route('/user/').put(updateUser);
 
 module.exports = router;
