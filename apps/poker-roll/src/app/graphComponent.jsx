@@ -22,21 +22,20 @@ import { useBankroll } from './queries/helpers';
   
 const graphData = (props) => {
     props.data.map(bankroll => {
-    return [
-        {
-            "id": "Bankroll",
-            "color": "hsl(238, 70%, 50%)",
-            "data": 
-            [
-                { 
-                    x: bankroll.timestamp,
-                    y: bankroll.amount,
-                }
-            ]
-        }
-    ]
-  })
+    return { 
+                x: bankroll.timestamp,
+                y: bankroll.amount,
+            }
+        })
 };
+
+const graphPoints = (props) => {
+    return [ {
+        "id": "Bankroll",
+            "color": "hsl(238, 70%, 50%)",
+            "data": [ graphData ]
+    }]
+}
 
 
 const Graph = ({ data }) => {
@@ -44,7 +43,7 @@ const Graph = ({ data }) => {
 
     return (
         <ResponsiveLine
-            data={graphData}
+            data={graphPoints}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
