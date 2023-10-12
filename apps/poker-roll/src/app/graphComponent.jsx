@@ -20,11 +20,14 @@ import { useBankroll } from './queries/helpers';
 //     setMinY(minValue - getStdDeviation(yValues));
 //     setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
   
-const graphData = (data) => {
-  data.map(bankroll => {
+const graphData = (props) => {
+    props.data.map(bankroll => {
     return {
+        id: "Bankroll",
+        data: {
       x: bankroll.timestamp,
       y: bankroll.amount,
+    }
     }
   })
 }
