@@ -22,15 +22,21 @@ import { useBankroll } from './queries/helpers';
   
 const graphData = (props) => {
     props.data.map(bankroll => {
-    return {
-        id: "Bankroll",
-        data: {
-      x: bankroll.timestamp,
-      y: bankroll.amount,
-    }
-    }
+    return [
+        {
+            "id": "Bankroll",
+            "color": "hsl(238, 70%, 50%)",
+            "data": 
+            [
+                { 
+                    x: bankroll.timestamp,
+                    y: bankroll.amount,
+                }
+            ]
+        }
+    ]
   })
-}
+};
 
 
 const Graph = ({ data }) => {
