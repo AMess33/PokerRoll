@@ -29,11 +29,11 @@ const graphData = (props) => {
         })
 };
 
-const graphPoints = (props) => {
+const graphPoints = () => {
     return [ {
         "id": "Bankroll",
-            "color": "hsl(238, 70%, 50%)",
-            "data": [ graphData ]
+        "color": "hsl(238, 70%, 50%)",
+        "data": [ graphData ]
     }]
 }
 
