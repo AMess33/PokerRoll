@@ -33,7 +33,7 @@ const graphPoints = () => {
     return [ {
         "id": "Bankroll",
         "color": "hsl(238, 70%, 50%)",
-        "data": [ graphData ]
+        "data": [ graphData() ]
     }]
 }
 
@@ -43,7 +43,7 @@ const Graph = ({ data }) => {
 
     return (
         <ResponsiveLine
-            data={graphPoints}
+            data={graphPoints()}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
