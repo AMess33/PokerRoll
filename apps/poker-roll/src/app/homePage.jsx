@@ -26,7 +26,7 @@ if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
 const queryClient = new QueryClient()
 
 function PokerRoll() {
-    const {isLoaded } = useUser();
+    const { isLoaded } = useUser();
     if (!isLoaded) {
         return null;
       }
@@ -54,7 +54,7 @@ function Home() {
                 <div>
                     <NewSession />
                 </div>
-                <div className='mainContent'>
+                <div>
                     <BankrollHeader />
                 </div>
                 <div>
