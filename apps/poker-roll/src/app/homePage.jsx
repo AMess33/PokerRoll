@@ -22,11 +22,11 @@ import {
 if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
   }
-  const clerkPubKey = process.env.NX_CLERK_PUBLISHABLE_KEY;
+
+const clerkPubKey = process.env.NX_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient()
 
 function PokerRoll() {
-    
 
     return (
       <QueryClientProvider client={queryClient}>
@@ -36,6 +36,7 @@ function PokerRoll() {
       </QueryClientProvider>
     )
   }
+
 function Home() {
     const { isLoaded } = useUser();
     if (!isLoaded) {
@@ -43,30 +44,30 @@ function Home() {
       }
     return (
         <div>
-        <SignedIn>
-            <div>
+            <SignedIn>
                 <div>
-                    <h1>Poker Roll</h1>
-                </div>
-                <div>
-                    <NewSession />
-                </div>
-                <div>
-                    <BankrollHeader />
-                </div>
-                <div>
-                    <Outlet />
-                </div>
-                <div>
-                    <BottomNav />
-                </div>
+                    <div>
+                        <h1>Poker Roll</h1>
+                    </div>
+                    <div>
+                        <NewSession />
+                    </div>
+                    <div>
+                        <BankrollHeader />
+                    </div>
+                    <div>
+                        <Outlet />
+                    </div>
+                    <div>
+                        <BottomNav />
+                    </div>
                 </div>
             </SignedIn>
             <SignedOut>
-            <RedirectToSignIn />
-        </SignedOut>
+                <RedirectToSignIn />
+            </SignedOut>
         </div>
-            )
+    )
             
 };
 
