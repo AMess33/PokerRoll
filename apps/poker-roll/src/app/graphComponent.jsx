@@ -38,7 +38,7 @@ const graphPoints = () => {
 }
 
 
-const Graph = ({ data }) => {
+const Graph = () => {
   const bankrollQuery = useBankroll()
 
     return (

@@ -14,11 +14,11 @@ const {
 router.route('/').get((req, res) => {
   res.send('Hello World');
 });
-router.route('/user/session').post(createSession);
+router.route('/session').post(createSession);
 
-router.route('/user/session').put(updateSession);
+router.route('/session').put(updateSession);
 
-router.route('/user/bankroll').put(updateBankroll);
+router.route('/bankroll').put(updateBankroll);
 
 
 module.exports = router;
