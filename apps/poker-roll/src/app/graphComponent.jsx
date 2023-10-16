@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
 import { useBankroll } from './queries/helpers';
+import { useUser } from "@clerk/clerk-react";
 
 // const graphData = useEffect((props) => {
 //   setSeries([{

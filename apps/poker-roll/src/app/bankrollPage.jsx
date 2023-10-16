@@ -2,7 +2,8 @@ import React from "react";
 import Graph from "./graphComponent";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { useSessions, useUser } from "./queries/helpers";
+import { useSessions } from "./queries/helpers";
+import { useUser } from "@clerk/clerk-react";
 
 function PastSession(props){
     const sessionsQuery = useSessions()
@@ -25,13 +26,13 @@ function PastSession(props){
     )
 }
 const Bankroll = (props) => {
-    const userQuery = useUser()
+    const { user } = useUser();
 
     return (
         <div>
             <Container maxWidth="sm">
                 <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>
-                    <h3>{userQuery.data?.user.Bankroll}</h3>
+                    <h3>{user.Bankroll}</h3>
                 <Graph />
                 {/* Current Bankroll amount at top */}
                 {/* display a graph of bankroll change over time */}
