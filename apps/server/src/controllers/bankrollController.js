@@ -2,6 +2,15 @@ const {Bankroll} = require('../models');
 const mongoose = require('mongoose');
 
 module.exports = {
+    async createBankroll(req, res) {
+        try {
+            const bankroll = await Bankroll.create(req.body);
+            res.json(bankroll);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    
     async updateBankroll(req, res) {
         try {
             console.log(req.body);
