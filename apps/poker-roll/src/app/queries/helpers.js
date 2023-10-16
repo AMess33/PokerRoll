@@ -3,19 +3,19 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function useUser() {
   return useQuery({ queryKey: ['user'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user').then( (res) => res.json(),);
+    return fetch('http://localhost:3333/api').then( (res) => res.json(),);
   } });
 }
 
 export function useSessions() {
   return useQuery({ queryKey: ['sessions'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user/session').then( (res) => res.json(),)
+    return fetch('http://localhost:3333/api/session').then( (res) => res.json(),)
   } });
 }
 
 export function useBankroll() {
   return useQuery({ queryKey: ['bankroll'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user/bankroll').then( (res) => res.json(),)
+    return fetch('http://localhost:3333/api/bankroll').then( (res) => res.json(),)
   }});
 }
 // export function useCreateUser() {
@@ -38,7 +38,7 @@ export function useCreateSession() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-        return fetch('http://localhost:3333/api/user/session', {method: 'POST', body: JSON.stringify(formState),  headers: {
+        return fetch('http://localhost:3333/api/session', {method: 'POST', body: JSON.stringify(formState),  headers: {
           "Content-Type": "application/json",} })
       },
     onSuccess: () => {
@@ -53,7 +53,7 @@ export function useUpdateSession() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/user/session', {method: 'PUT', body: JSON.stringify(formState), headers: {
+      return fetch('http://localhost:3333/api/session', {method: 'PUT', body: JSON.stringify(formState), headers: {
         "Content-Type": "application/json",
       }})
     },
@@ -83,7 +83,7 @@ export function useUpdateBankroll() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/user', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
+      return fetch('http://localhost:3333/api', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user'] });

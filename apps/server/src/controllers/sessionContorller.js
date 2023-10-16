@@ -1,4 +1,4 @@
-const { User, Session } = require('../models');
+const { Session } = require('../models');
 const mongoose = require('mongoose');
 // get logged in users sessions
 // create session
@@ -10,20 +10,8 @@ module.exports = {
     try {
       console.log(req.body);
       const session = await Session.create(req.body);
-      const user = await User.findOneAndUpdate(
-        { _id: new mongoose.Types.ObjectId(req.body.userId) },
-        { $addToSet: { sessions: session._id } },
-        { new: true }
-      );
-      if (!user) {
-        return res.status(404).json({
-          message: 'Session created, but found no user with that ID',
-        });
-      }
-      console.log(session);
-      res.json('New Session started');
+      res.json(session);
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   },
