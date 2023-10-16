@@ -1,12 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 
-export function useUser() {
-  return useQuery({ queryKey: ['user'], queryFn: () => {
-    return fetch('http://localhost:3333/api').then( (res) => res.json(),);
-  } });
-}
-
 export function useSessions() {
   return useQuery({ queryKey: ['sessions'], queryFn: () => {
     return fetch('http://localhost:3333/api/session').then( (res) => res.json(),)
@@ -18,19 +12,7 @@ export function useBankroll() {
     return fetch('http://localhost:3333/api/bankroll').then( (res) => res.json(),)
   }});
 }
-// export function useCreateUser() {
-//   const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: (formState) => {
-//       console.log(formState);
-//       return fetch('http://localhost3333/api/user', {method: 'POST', body: JSON.stringify(formState), headers: { "Content-Type": "application/json",} })
-//     },
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: ['users'] });
-//     }
-//   })
-// }
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
@@ -63,19 +45,22 @@ export function useUpdateSession() {
   });
 }
 
-// export function useDeleteUser() {
-//   const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: (res, req) => {
-//       console.log(req.body);
-//       return fetch('http://localhost:3333/api/user', {method: "DELETE", body: JSON.stringify(req.body), headers: { "Content-Type:": "application/json",}})
-//     },
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: ['user'] });
-//     },
-//   });
-// }
+export function useCreateBankroll() {
+  const queryClient = useQueryClient();
+
+
+  return useMutation({
+    mutationFn: (formState) => {
+      console.log(formState);
+        return fetch('http://localhost:3333/api/bankroll', {method: 'POST', body: JSON.stringify(formState),  headers: {
+          "Content-Type": "application/json",} })
+      },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
+    },
+  });
+}
 
 export function useUpdateBankroll() {
   const queryClient = useQueryClient();
@@ -83,10 +68,10 @@ export function useUpdateBankroll() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
+      return fetch('http://localhost:3333/api/bankroll', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] });
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
     },
   });
 }
