@@ -26,27 +26,24 @@ if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
 const queryClient = new QueryClient()
 
 function PokerRoll() {
-    const { isLoaded } = useUser();
-    if (!isLoaded) {
-        return null;
-      }
+    
 
     return (
       <QueryClientProvider client={queryClient}>
         <ClerkProvider publishableKey={clerkPubKey}>
-            <SignedIn>
-                <Home />
-            </SignedIn>
-            <SignedOut>
-                <RedirectToSignIn />
-            </SignedOut>
+            <Home />
         </ClerkProvider>
       </QueryClientProvider>
     )
   }
 function Home() {
-
+    const { isLoaded } = useUser();
+    if (!isLoaded) {
+        return null;
+      }
     return (
+        <div>
+        <SignedIn>
             <div>
                 <div>
                     <h1>Poker Roll</h1>
@@ -63,7 +60,12 @@ function Home() {
                 <div>
                     <BottomNav />
                 </div>
-            </div>
+                </div>
+            </SignedIn>
+            <SignedOut>
+            <RedirectToSignIn />
+        </SignedOut>
+        </div>
             )
             
 };
