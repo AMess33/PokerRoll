@@ -12,6 +12,9 @@ const BankrollHeader = (props) => {
         <div>
             <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
+                    <Typography gutterBottom variant="h4" component="div">
+                        Welcome {userQuery.data?.user.name}
+                    </Typography>
                     <Typography gutterBottom variant="h5" component="div">
                             Current BankRoll: {userQuery.data?.user.bankroll}
                     </Typography>

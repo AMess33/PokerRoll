@@ -1,94 +1,49 @@
 import React from "react";
-
+import { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
-import { useSessions, useUser } from './queries/helpers';
+import { useBankroll } from './queries/helpers';
 
-const sampleData = [
-  {
-    "id": "July",
-    "color": "hsl(14, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 131
-      },
-      {
-        "x": "helicopter",
-        "y": 277
-      },
-      {
-        "x": "boat",
-        "y": 204
-      },
-      {
-        "x": "train",
-        "y": 180
-      },
-      {
-        "x": "subway",
-        "y": 103
-      },
-      {
-        "x": "bus",
-        "y": 87
-      },
-      {
-        "x": "car",
-        "y": 61
-      },
-      {
-        "x": "moto",
-        "y": 54
-      }
-    ],
-  },
-  {
-    "id": "france",
-    "color": "hsl(109, 70%, 50%)",
-    "data": [
-      {
-        "x": "plane",
-        "y": 232
-      },
-      {
-        "x": "helicopter",
-        "y": 168
-      },
-      {
-        "x": "boat",
-        "y": 28
-      },
-      {
-        "x": "train",
-        "y": 18
-      },
-      {
-        "x": "subway",
-        "y": 18
-      },
-      {
-        "x": "bus",
-        "y": 75
-      },
-      {
-        "x": "car",
-        "y": 41
-      },
-      {
-        "x": "moto",
-        "y": 283
-      }
-    ]
-  }
-]
+// const graphData = useEffect((props) => {
+//   setSeries([{
+//     id: "Bankroll",
+//     data: props.data
+//     .sort((r1,r2) => r1.timestamp - r2.timestamp)
+//     .map(bankroll => {
+//       return {
+//       x: bankroll.timestamp,
+//       y: bankroll.amount,
+//     }
+//   })}])
+//     let yValues = props.data.map(d => d.value);
+//     let minValue = yValues.reduce((v1, v2) => v1 > v2 ? v2 : v1);
+//     let maxValue = yValues.reduce((v1, v2) => v1 > v2 ? v1 : v2);
+//     setMinY(minValue - getStdDeviation(yValues));
+//     setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
+  
+const graphData = (props) => {
+    props.data.map(bankroll => {
+    return { 
+                x: bankroll.timestamp,
+                y: bankroll.amount,
+            }
+        })
+};
+
+const graphPoints = () => {
+    return [ {
+        "id": "Bankroll",
+        "color": "hsl(238, 70%, 50%)",
+        "data": [ graphData() ]
+    }]
+}
 
 
-const Graph = ({ data }) => {
-  const sessionsQuery = useSessions()
+const Graph = () => {
+  const bankrollQuery = useBankroll()
 
     return (
         <ResponsiveLine
-            data={sampleData}
+            data={graphPoints()}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{

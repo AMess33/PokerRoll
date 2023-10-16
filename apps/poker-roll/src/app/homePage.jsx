@@ -10,36 +10,64 @@ import {
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query';
+import {
+    ClerkProvider,
+    SignedIn,
+    SignedOut,
+    UserButton,
+    useUser,
+    RedirectToSignIn,
+  } from "@clerk/clerk-react";
 
+if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
+    throw new Error("Missing Publishable Key")
+  }
+
+const clerkPubKey = process.env.NX_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient()
+
 function PokerRoll() {
+
     return (
       <QueryClientProvider client={queryClient}>
-        <Home />
+        <ClerkProvider publishableKey={clerkPubKey}>
+            <Home />
+        </ClerkProvider>
       </QueryClientProvider>
     )
   }
-function Home() {
 
+function Home() {
+    const { isLoaded } = useUser();
+    if (!isLoaded) {
+        return null;
+      }
     return (
-            <div>
+        <div>
+            <SignedIn>
                 <div>
-                    <h1>Poker Roll</h1>
+                    <div>
+                        <h1>Poker Roll</h1>
+                    </div>
+                    <div>
+                        <NewSession />
+                    </div>
+                    <div>
+                        <BankrollHeader />
+                    </div>
+                    <div>
+                        <Outlet />
+                    </div>
+                    <div>
+                        <BottomNav />
+                    </div>
                 </div>
-                <div>
-                    <NewSession />
-                </div>
-                <div className='mainContent'>
-                    <BankrollHeader />
-                </div>
-                <div>
-                    <Outlet />
-                </div>
-                <div>
-                    <BottomNav />
-                </div>
-            </div>
-            )
+            </SignedIn>
+            <SignedOut>
+                <RedirectToSignIn />
+            </SignedOut>
+        </div>
+    )
             
 };
 
