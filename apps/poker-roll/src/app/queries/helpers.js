@@ -16,7 +16,6 @@ export function useBankroll() {
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
-
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
@@ -48,7 +47,6 @@ export function useUpdateSession() {
 
 export function useCreateBankroll() {
   const queryClient = useQueryClient();
-
 
   return useMutation({
     mutationFn: (formState) => {
