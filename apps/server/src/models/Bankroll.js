@@ -14,6 +14,7 @@ const bankrollSchema = new Schema({
     timeStamp: {
         type: Date,
         required: true,
+        default: Date.now,
     }
 });
 

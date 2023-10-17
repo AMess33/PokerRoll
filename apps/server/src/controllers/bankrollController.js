@@ -2,9 +2,11 @@ const {Bankroll} = require('../models');
 const mongoose = require('mongoose');
 
 module.exports = {
-    async createBankroll(req, res) {
+    async getBankroll(req, res) {
         try {
-            const bankroll = await Bankroll.create(req.body);
+            console.log(req.query);
+            let bankroll = await Bankroll.findOne({userID: req.query.id});
+            if(!bankroll) { bankroll = await Bankroll.create({userID: req.query.id})}
             res.json(bankroll);
         } catch (err) {
             res.status(500).json(err);

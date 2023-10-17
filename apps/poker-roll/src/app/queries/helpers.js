@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-
+import { useUser } from "@clerk/clerk-react";
 
 export function useSessions() {
   return useQuery({ queryKey: ['sessions'], queryFn: () => {
@@ -8,8 +8,10 @@ export function useSessions() {
 }
 
 export function useBankroll() {
-  return useQuery({ queryKey: ['bankroll'], queryFn: () => {
-    return fetch('http://localhost:3333/api/bankroll').then( (res) => res.json(),)
+  const user = useUser();
+
+  return useQuery({ queryKey: ['bankroll', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/bankroll?id=${user.user.id}`).then( (res) => res.json(),)
   }});
 }
 
@@ -45,7 +47,7 @@ export function useUpdateSession() {
 }
 
 
-export function useCreateBankroll() {
+export function useGetBankroll() {
   const queryClient = useQueryClient();
 
   return useMutation({

@@ -8,6 +8,7 @@ const {
 
 const {
   updateBankroll,
+  getBankroll
 } = require('../controllers/bankrollController');
 
 // test route
@@ -17,6 +18,8 @@ router.route('/').get((req, res) => {
 router.route('/session').post(createSession);
 
 router.route('/session').put(updateSession);
+
+router.route('/bankroll').get(getBankroll);
 
 router.route('/bankroll').put(updateBankroll);
 
