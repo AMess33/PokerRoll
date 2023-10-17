@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
-import { useBankroll } from './queries/helpers';
+import { useGetAllBankroll } from './queries/helpers';
 import { useUser } from "@clerk/clerk-react";
 
 // const graphData = useEffect((props) => {
@@ -21,30 +21,28 @@ import { useUser } from "@clerk/clerk-react";
 //     setMinY(minValue - getStdDeviation(yValues));
 //     setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
   
-const graphData = (props) => {
-    props.data.map(bankroll => {
+const graphData = (bankrolls) => {
+    return bankrolls.map(bankroll => {
     return { 
-                x: bankroll.timestamp,
+                x: bankroll.timeStamp,
                 y: bankroll.amount,
             }
         })
 };
 
-const graphPoints = () => {
-    return [ {
-        "id": "Bankroll",
-        "color": "hsl(238, 70%, 50%)",
-        "data": [ graphData() ]
-    }]
-}
 
 
 const Graph = () => {
-  const bankrollQuery = useBankroll()
+  const bankrollQuery = useGetAllBankroll();
+  console.log(bankrollQuery);
 
     return (
         <ResponsiveLine
-            data={graphPoints()}
+            data={[ {
+                "id": "Bankroll",
+                "color": "hsl(238, 70%, 50%)",
+                "data": graphData(bankrollQuery.data || []) 
+            }]}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
             xScale={{ type: 'point' }}
             yScale={{
@@ -54,7 +52,8 @@ const Graph = () => {
                 stacked: true,
                 reverse: false
             }}
-            yFormat=" >-.2f"
+            xFormat= {(timeStamp) => {console.log(timeStamp);
+            return new Date(timeStamp).toLocaleDateString();}} 
             curve="natural"
             axisTop={null}
             axisRight={null}
@@ -62,7 +61,7 @@ const Graph = () => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'transportation',
+                legend: 'Date',
                 legendOffset: 36,
                 legendPosition: 'middle'
             }}
@@ -70,7 +69,7 @@ const Graph = () => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'count',
+                legend: 'Amount',
                 legendOffset: -40,
                 legendPosition: 'middle'
             }}

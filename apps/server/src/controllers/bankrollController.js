@@ -13,6 +13,14 @@ module.exports = {
         }
     },
     
+    async getAllBankroll(req, res) {
+        try {
+            let bankroll = await Bankroll.find({userID: req.query.id}, {}, { sort: {'timeStamp' : 1}} );
+            res.json(bankroll);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     // find most recent bankroll X
     // add or subtract an amount from recent X
     // create new bankroll with updated amount

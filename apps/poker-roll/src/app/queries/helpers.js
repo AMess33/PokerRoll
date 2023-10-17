@@ -15,6 +15,14 @@ export function useBankroll() {
   }});
 }
 
+export function useGetAllBankroll() {
+  const user = useUser();
+
+  return useQuery({ queryKey: ['allbankroll', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/allbankroll?id=${user.user.id}`).then( (res) => res.json(),)
+  }})
+}
+
 export function useCreateSession() {
   const queryClient = useQueryClient();
 
@@ -76,3 +84,4 @@ export function useUpdateBankroll() {
     },
   });
 }
+
