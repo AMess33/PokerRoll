@@ -18,7 +18,7 @@ export function useBankroll() {
 export function useGetAllBankroll() {
   const user = useUser();
 
-  return useQuery({ queryKey: ['allbankroll', user.user.id], queryFn: () => {
+  return useQuery({ queryKey: ['bankroll', 'all', user.user.id], queryFn: () => {
     return fetch(`http://localhost:3333/api/allbankroll?id=${user.user.id}`).then( (res) => res.json(),)
   }})
 }

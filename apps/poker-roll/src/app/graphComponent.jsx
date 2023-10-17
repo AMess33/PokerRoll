@@ -4,27 +4,11 @@ import { ResponsiveLine } from '@nivo/line'
 import { useGetAllBankroll } from './queries/helpers';
 import { useUser } from "@clerk/clerk-react";
 
-// const graphData = useEffect((props) => {
-//   setSeries([{
-//     id: "Bankroll",
-//     data: props.data
-//     .sort((r1,r2) => r1.timestamp - r2.timestamp)
-//     .map(bankroll => {
-//       return {
-//       x: bankroll.timestamp,
-//       y: bankroll.amount,
-//     }
-//   })}])
-//     let yValues = props.data.map(d => d.value);
-//     let minValue = yValues.reduce((v1, v2) => v1 > v2 ? v2 : v1);
-//     let maxValue = yValues.reduce((v1, v2) => v1 > v2 ? v1 : v2);
-//     setMinY(minValue - getStdDeviation(yValues));
-//     setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
   
 const graphData = (bankrolls) => {
     return bankrolls.map(bankroll => {
     return { 
-                x: new Date(bankroll.timeStamp).toLocaleString(),
+                x: new Date(bankroll.timeStamp),
                 y: bankroll.amount,
             }
         })
@@ -44,7 +28,7 @@ const Graph = () => {
                 "data": graphData(bankrollQuery.data || []) 
             }]}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-            xScale={{ type: 'point' }}
+            xScale={{ type: 'time', nice: true }}
             yScale={{
                 type: 'linear',
                 min: 'auto',
@@ -54,13 +38,15 @@ const Graph = () => {
             }}
             xFormat= {(timeStamp) => {console.log(timeStamp);
             return new Date(timeStamp).toLocaleDateString();}} 
-            curve="natural"
+            curve="cardinal"
             axisTop={null}
             axisRight={null}
             axisBottom={{
                 tickSize: 5,
                 tickPadding: 5,
-                tickRotation: 0,
+                tickRotation: 50,
+                tickValues: 5,
+                format: '%d %b',
                 legend: 'Date',
                 legendOffset: 36,
                 legendPosition: 'middle'
