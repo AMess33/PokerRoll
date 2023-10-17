@@ -24,7 +24,7 @@ import { useUser } from "@clerk/clerk-react";
 const graphData = (bankrolls) => {
     return bankrolls.map(bankroll => {
     return { 
-                x: bankroll.timeStamp,
+                x: new Date(bankroll.timeStamp).toLocaleString(),
                 y: bankroll.amount,
             }
         })
