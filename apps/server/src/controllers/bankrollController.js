@@ -5,7 +5,7 @@ module.exports = {
     async getBankroll(req, res) {
         try {
             console.log(req.query);
-            let bankroll = await Bankroll.findOne({userID: req.query.id});
+            let bankroll = await Bankroll.findOne({userID: req.query.id}, {}, { sort: {'timeStamp' : -1}});
             if(!bankroll) { bankroll = await Bankroll.create({userID: req.query.id})}
             res.json(bankroll);
         } catch (err) {
@@ -13,18 +13,26 @@ module.exports = {
         }
     },
     
+    // find most recent bankroll X
+    // add or subtract an amount from recent X
+    // create new bankroll with updated amount
     async updateBankroll(req, res) {
         try {
             console.log(req.body);
-            const bankroll = await Bankroll.findOneAndUpdate(
-                {_id: new mongoose.Types.ObjectId(req.body.id) },
-                { $set: req.body},
-                {new: true}
+            const bankroll = await Bankroll.findOne(
+                {userID: (req.body.id) },
+                { },
+                { sort: {'timeStamp' : -1}}
             );
             if (!bankroll) {
                 return res.status(404).json({ message: 'No Bankroll found'});
             }
-            console.log(bankroll)
+
+            const newAmount = bankroll.amount + (req.body.amount);
+            const newBankroll = await Bankroll.create({userID: req.body.id, amount: newAmount});
+
+
+            console.log(newBankroll)
             res.json('Bankroll Updated!');
         } catch (err) {
             console.log(err);

@@ -21,7 +21,7 @@ router.route('/session').put(updateSession);
 
 router.route('/bankroll').get(getBankroll);
 
-router.route('/bankroll').put(updateBankroll);
+router.route('/bankroll').post(updateBankroll);
 
 
 module.exports = router;
