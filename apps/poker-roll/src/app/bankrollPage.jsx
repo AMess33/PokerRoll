@@ -10,13 +10,13 @@ function PastSession(props){
 
     return (
         <div>
-            {sessionsQuery.data?.map((session) => (
+            {sessionsQuery.data?.map((sessionsQuery) => (
             <Container maxWidth="sm">
                 <Box>
-                    <h4>session.startTime</h4>
-                    <p>session.game</p>
-                    <p>session.casino</p>
-                    <span>session.plusMinus</span>
+                    <h4>sessionsQuery.startTime</h4>
+                    <p>sessionsQuery.game</p>
+                    <p>sessionsQuery.casino</p>
+                    <span>sessionsQuery.plusMinus</span>
                 </Box>
             {/* show info of previous sessions */}
             {/* date/ location/ game type/ plus/minus of session */}

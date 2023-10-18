@@ -2,9 +2,17 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useUser } from "@clerk/clerk-react";
 
 export function useSessions() {
-  return useQuery({ queryKey: ['sessions'], queryFn: () => {
-    return fetch('http://localhost:3333/api/session').then( (res) => res.json(),)
+  const user = useUser();
+  return useQuery({ queryKey: ['sessions', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/session?id=${user.user.id}`).then( (res) => res.json(),)
   } });
+}
+
+export function useAllSessions() {
+  const user = useUser();
+  return useQuery({ queryKey: ['sessions', 'all', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/allsessions?id=${user.user.id}`).then( (res) => res.json(),)
+  }})
 }
 
 export function useBankroll() {
