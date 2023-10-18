@@ -85,7 +85,7 @@ export function useUpdateBankroll() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/bankroll', {method: "POST", body: JSON.stringify({...formState, id: user.user.id}), headers: { "Content-Type": "application/json",}})
+      return fetch('http://localhost:3333/api/bankroll', {method: "POST", body: JSON.stringify({...formState, userID: user.user.id}), headers: { "Content-Type": "application/json",}})
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['bankroll'] });
