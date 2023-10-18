@@ -8,7 +8,7 @@ export function useSessions() {
   } });
 }
 
-export function useAllSessions() {
+export function useGetAllSessions() {
   const user = useUser();
   return useQuery({ queryKey: ['sessions', 'all', user.user.id], queryFn: () => {
     return fetch(`http://localhost:3333/api/allsessions?id=${user.user.id}`).then( (res) => res.json(),)

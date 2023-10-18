@@ -32,4 +32,12 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  async getAllSessions( req, res) {
+    try {
+      let session = await Session.find({userID: req.query.id}, {}, { sort: {'startTime' : -1}});
+      res.json(session);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
 };

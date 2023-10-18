@@ -4,6 +4,7 @@ const router = require('express').Router();
 const {
   createSession,
   updateSession,
+  getAllSessions,
 } = require('../controllers/sessionContorller');
 
 const {
@@ -25,6 +26,8 @@ router.route('/bankroll').get(getBankroll);
 router.route('/bankroll').post(updateBankroll);
 
 router.route('/allbankroll').get(getAllBankroll);
+
+router.route('/allsessions').get(getAllSessions);
 
 
 module.exports = router;

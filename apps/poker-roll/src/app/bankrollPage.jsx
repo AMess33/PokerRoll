@@ -2,29 +2,26 @@ import React from "react";
 import Graph from "./graphComponent";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { useSessions } from "./queries/helpers";
+import { useGetAllSessions } from "./queries/helpers";
 import { useUser } from "@clerk/clerk-react";
 
-function PastSession(props){
-    const sessionsQuery = useSessions()
+const PastSession = (props) => {
+    const sessionsQuery = useGetAllSessions()
+    console.log(sessionsQuery);
 
-    return (
-        <div>
-            {sessionsQuery.data?.map((sessionsQuery) => (
-            <Container maxWidth="sm">
-                <Box>
-                    <h4>sessionsQuery.startTime</h4>
-                    <p>sessionsQuery.game</p>
-                    <p>sessionsQuery.casino</p>
-                    <span>sessionsQuery.plusMinus</span>
-                </Box>
-            {/* show info of previous sessions */}
-            {/* date/ location/ game type/ plus/minus of session */}
-            </Container>
-            ))}
-        </div>
+    return sessionsQuery.data?.map(session => {
+            return (
+                <Container maxWidth="sm">
+                    <Box>
+                        <h4>session.startTime</h4>
+                        <p>session.game</p>
+                        <p>session.casino</p>
+                        <span>session.plusMinus</span>
+                    </Box>
+                </Container>
     )
-}
+})};
+
 const Bankroll = (props) => {
     const { user } = useUser();
 
