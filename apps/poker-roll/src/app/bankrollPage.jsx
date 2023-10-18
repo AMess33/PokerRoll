@@ -22,14 +22,14 @@ const Bankroll = (props) => {
 const PastSession = (data) => {
     const sessionsQuery = useGetAllSessions()
 
-    return sessionsQuery.data?.map(session => {
+    return sessionsQuery.data?.map((session) => {
             return (
                 <Container maxWidth="sm">
                     <Box>
-                        <h4>session.startTime</h4>
-                        <p>session.game</p>
-                        <p>session.casino</p>
-                        <span>session.plusMinus</span>
+                        <h4>{session.startTime}</h4>
+                        <p>{session.game}</p>
+                        <p>{session.casino}</p>
+                        <span>{session.plusMinus}</span>
                     </Box>
                 </Container>
     )
