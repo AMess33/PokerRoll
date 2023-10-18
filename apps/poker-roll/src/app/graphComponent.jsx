@@ -18,9 +18,9 @@ const graphData = (bankrolls) => {
 
 const Graph = () => {
   const bankrollQuery = useGetAllBankroll();
-  console.log(bankrollQuery);
 
     return (
+        <div>
         <ResponsiveLine
             data={[ {
                 "id": "Bankroll",
@@ -92,6 +92,7 @@ const Graph = () => {
                 }
             ]}
         />
+        </div>
     )
 }
 export default Graph;

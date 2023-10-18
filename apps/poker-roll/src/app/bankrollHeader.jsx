@@ -18,7 +18,6 @@ const BankrollHeader = (props) => {
       }
     const { user } = useUser();
     const bankrollQuery = useBankroll();
-    console.log(bankrollQuery);
     return (
         <div>
             <Card sx={{ maxWidth: 345 }}>

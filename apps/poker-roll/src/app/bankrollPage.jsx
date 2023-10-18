@@ -4,10 +4,23 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { useGetAllSessions } from "./queries/helpers";
 import { useUser } from "@clerk/clerk-react";
+import BankrollHeader from './bankrollHeader';
 
-const PastSession = (props) => {
+
+
+const Bankroll = (props) => {
+
+    return (
+        <div>
+            <BankrollHeader />
+            <Graph />
+            <PastSession />
+        </div>
+    )
+}
+
+const PastSession = (data) => {
     const sessionsQuery = useGetAllSessions()
-    console.log(sessionsQuery);
 
     return sessionsQuery.data?.map(session => {
             return (
@@ -21,24 +34,4 @@ const PastSession = (props) => {
                 </Container>
     )
 })};
-
-const Bankroll = (props) => {
-    const { user } = useUser();
-
-    return (
-        <div>
-            <Container maxWidth="sm">
-                <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>
-                    <h3>{user.Bankroll}</h3>
-                <Graph />
-                {/* Current Bankroll amount at top */}
-                {/* display a graph of bankroll change over time */}
-                {/* buttons to change timeframe */}
-                {/* past month/ 6 months/ ytd/ all time */}
-                </Box>
-                <PastSession />
-            </Container>
-        </div>
-    )
-}
 export default Bankroll;

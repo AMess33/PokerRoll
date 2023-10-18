@@ -1,6 +1,5 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
-import BankrollHeader from './bankrollHeader';
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -47,10 +46,6 @@ function Home() {
                 <div>
                     <div>
                         <h1>Poker Roll</h1>
-                    </div>
-                    
-                    <div>
-                        <BankrollHeader />
                     </div>
                     <div>
                         <Outlet />
