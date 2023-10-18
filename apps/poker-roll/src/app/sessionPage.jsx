@@ -5,6 +5,8 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useCreateSession } from "./queries/helpers";
 
+// session page will allow you to start a new session, cash or tournament
+
 function CashGameForm(){
     const [formState, setFormState] = useState({
         buyIn: "",

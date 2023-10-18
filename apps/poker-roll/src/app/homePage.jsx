@@ -35,6 +35,8 @@ function PokerRoll() {
     )
   }
 
+//   homepage displays App Name Header, OUTLET (Bankroll, new session, history), Bottom Nav
+
 function Home() {
     const { isLoaded } = useUser();
     if (!isLoaded) {

@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { useGetAllSessions } from "./queries/helpers";
 
+// history page will show all past sessions
+
 const PastSession = () => {
     const sessionsQuery = useGetAllSessions()
 
@@ -10,10 +12,10 @@ const PastSession = () => {
             return (
                 <Container maxWidth="sm">
                     <Box>
-                        <h4>{session.startTime}</h4>
-                        <p>{session.game}</p>
-                        <p>{session.casino}</p>
-                        <span>{session.plusMinus}</span>
+                        <h4>{sessionsQuery.data?.startTime}</h4>
+                        <p>{sessionsQuery.data?.game}</p>
+                        <p>{sessionsQuery.data?.casino}</p>
+                        <span>{sessionsQuery.data?.plusMinus}</span>
                     </Box>
                 </Container>
     )
