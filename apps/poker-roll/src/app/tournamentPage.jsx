@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Tournament = (props) => {
+const History = (props) => {
 
     return (
         <div>
@@ -9,4 +9,4 @@ const Tournament = (props) => {
         </div>
     )
 }
-export default Tournament;
+export default History;

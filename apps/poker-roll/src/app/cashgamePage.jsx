@@ -1,4 +1,5 @@
 import React from "react";
+import NewSession from './startSession';
 
 
 const Cashgame = (props) => {
@@ -6,7 +7,7 @@ const Cashgame = (props) => {
     return (
         <div>
             <div>
-                Lets start a new cashgame session!
+                <NewSession />
             </div>
         </div>
     )
