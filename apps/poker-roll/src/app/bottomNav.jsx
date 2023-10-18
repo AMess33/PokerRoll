@@ -33,7 +33,7 @@ export default function BottomNav() {
             >
                     <BottomNavigationAction value="/bankroll" label="BankRoll"  icon={<PaidIcon />} />
                     <BottomNavigationAction value="/session" label="New Session"  icon={<TableBarIcon />} />
-                    <BottomNavigationAction value="/tournament" label="History"  icon={<EmojiEventsIcon />} />
+                    <BottomNavigationAction value="/history" label="History"  icon={<EmojiEventsIcon />} />
                 </BottomNavigation>
              </Box>
         </div>

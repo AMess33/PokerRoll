@@ -5,12 +5,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import Cashgame from "./app/cashgamePage";
+import SessionPage from "./app/sessionPage";
 import Bankroll from "./app/bankrollPage";
-import Tournament from "./app/tournamentPage";
+import History from "./app/historyPage";
 import Home from "./app/homePage";
 
 import App from './app/app';
+import { Session } from 'inspector';
 
 const router = createBrowserRouter([
   {
@@ -24,13 +25,13 @@ const router = createBrowserRouter([
         // loader: bankrollLoader,
       },
       {
-        path: "/cashgame",
-        element: <Cashgame />,
+        path: "/session",
+        element: <SessionPage />,
         // loader: cashgameLoader,
       },
       {
-        path: "/tournament",
-        element: <Tournament />,
+        path: "/history",
+        element: <History />,
         // loader: tournamentLoader,
       }
     ],

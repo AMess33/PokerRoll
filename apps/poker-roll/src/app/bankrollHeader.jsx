@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, Button, TextField} from '@mui/material';
 import { useUser } from "@clerk/clerk-react";
 import { useBankroll, useUpdateBankroll } from "./queries/helpers";
 
-const BankrollHeader = (props) => {
+const BankrollHeader = () => {
     const [formState, setFormState] = useState({
         amount: "",
       });
