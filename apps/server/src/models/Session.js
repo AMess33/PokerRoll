@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const sessionSchema = new Schema({
+  userID: {
+    type: String,
+    required: true,
+},
   game: {
     type: String,
     required: true,

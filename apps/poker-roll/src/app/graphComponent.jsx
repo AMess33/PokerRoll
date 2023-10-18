@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
 import { useGetAllBankroll } from './queries/helpers';
 import { useUser } from "@clerk/clerk-react";
+import { Height } from "@mui/icons-material";
 
   
 const graphData = (bankrolls) => {
@@ -20,7 +21,7 @@ const Graph = () => {
   const bankrollQuery = useGetAllBankroll();
 
     return (
-        <div>
+        <div style={{height: 500 + 'px'}}>
         <ResponsiveLine
             data={[ {
                 "id": "Bankroll",
