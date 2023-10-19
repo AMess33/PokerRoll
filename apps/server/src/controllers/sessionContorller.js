@@ -9,7 +9,7 @@ module.exports = {
   async createSession(req, res) {
     try {
       console.log(req.body);
-      const session = await Session.create({userID: req.body.id, buyIn: req.body.buyIn, game: req.body.game, casino: req.body.casino, location: req.body.location});
+      const session = await Session.create(req.body);
       res.json(session);
     } catch (err) {
       res.status(500).json(err);
