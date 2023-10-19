@@ -1,7 +1,5 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
-import BankrollHeader from './bankrollHeader';
-import NewSession from './startSession';
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -37,6 +35,8 @@ function PokerRoll() {
     )
   }
 
+//   homepage displays App Name Header, OUTLET (Bankroll, new session, history), Bottom Nav
+
 function Home() {
     const { isLoaded } = useUser();
     if (!isLoaded) {
@@ -48,12 +48,6 @@ function Home() {
                 <div>
                     <div>
                         <h1>Poker Roll</h1>
-                    </div>
-                    <div>
-                        <NewSession />
-                    </div>
-                    <div>
-                        <BankrollHeader />
                     </div>
                     <div>
                         <Outlet />

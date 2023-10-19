@@ -1,45 +1,44 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useUser } from "@clerk/clerk-react";
 
-
-export function useUser() {
-  return useQuery({ queryKey: ['user'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user').then( (res) => res.json(),);
+export function useSessions() {
+  const user = useUser();
+  return useQuery({ queryKey: ['sessions', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/session?id=${user.user.id}`).then( (res) => res.json(),)
   } });
 }
 
-export function useSessions() {
-  return useQuery({ queryKey: ['sessions'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user/session').then( (res) => res.json(),)
-  } });
+export function useGetAllSessions() {
+  const user = useUser();
+  return useQuery({ queryKey: ['sessions', 'all', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/allsessions?id=${user.user.id}`).then( (res) => res.json(),)
+  }})
 }
 
 export function useBankroll() {
-  return useQuery({ queryKey: ['bankroll'], queryFn: () => {
-    return fetch('http://localhost:3333/api/user/bankroll').then( (res) => res.json(),)
+  const user = useUser();
+
+  return useQuery({ queryKey: ['bankroll', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/bankroll?id=${user.user.id}`).then( (res) => res.json(),)
   }});
 }
-// export function useCreateUser() {
-//   const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: (formState) => {
-//       console.log(formState);
-//       return fetch('http://localhost3333/api/user', {method: 'POST', body: JSON.stringify(formState), headers: { "Content-Type": "application/json",} })
-//     },
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: ['users'] });
-//     }
-//   })
-// }
+export function useGetAllBankroll() {
+  const user = useUser();
+
+  return useQuery({ queryKey: ['bankroll', 'all', user.user.id], queryFn: () => {
+    return fetch(`http://localhost:3333/api/allbankroll?id=${user.user.id}`).then( (res) => res.json(),)
+  }})
+}
+
 export function useCreateSession() {
   const queryClient = useQueryClient();
-
+  const user = useUser();
 
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-        return fetch('http://localhost:3333/api/user/session', {method: 'POST', body: JSON.stringify(formState),  headers: {
-          "Content-Type": "application/json",} })
+        return fetch('http://localhost:3333/api/session', {method: "POST", body: JSON.stringify({...formState, userID: user.user.id}), headers: { "Content-Type": "application/json",}})
       },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessions'] });
@@ -53,7 +52,7 @@ export function useUpdateSession() {
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/user/session', {method: 'PUT', body: JSON.stringify(formState), headers: {
+      return fetch('http://localhost:3333/api/session', {method: 'PUT', body: JSON.stringify(formState), headers: {
         "Content-Type": "application/json",
       }})
     },
@@ -63,30 +62,34 @@ export function useUpdateSession() {
   });
 }
 
-// export function useDeleteUser() {
-//   const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: (res, req) => {
-//       console.log(req.body);
-//       return fetch('http://localhost:3333/api/user', {method: "DELETE", body: JSON.stringify(req.body), headers: { "Content-Type:": "application/json",}})
-//     },
-//     onSuccess: () => {
-//       queryClient.invalidateQueries({ queryKey: ['user'] });
-//     },
-//   });
-// }
-
-export function useUpdateBankroll() {
+export function useGetBankroll() {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: (formState) => {
       console.log(formState);
-      return fetch('http://localhost:3333/api/user', {method: "PUT", body: JSON.stringify(formState), headers: { "Content-Type": "application/json",}})
-    },
+        return fetch('http://localhost:3333/api/bankroll', {method: 'POST', body: JSON.stringify(formState),  headers: {
+          "Content-Type": "application/json",} })
+      },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user'] });
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
     },
   });
 }
+
+export function useUpdateBankroll() {
+  const queryClient = useQueryClient();
+  const user = useUser();
+
+  return useMutation({
+    mutationFn: (formState) => {
+      console.log(formState);
+      return fetch('http://localhost:3333/api/bankroll', {method: "POST", body: JSON.stringify({...formState, userID: user.user.id}), headers: { "Content-Type": "application/json",}})
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
+    },
+  });
+}
+

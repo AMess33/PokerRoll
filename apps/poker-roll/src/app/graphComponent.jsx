@@ -1,51 +1,35 @@
 import React from "react";
 import { useEffect } from "react";
 import { ResponsiveLine } from '@nivo/line'
-import { useBankroll } from './queries/helpers';
+import { useGetAllBankroll } from './queries/helpers';
+import { useUser } from "@clerk/clerk-react";
+import { Height } from "@mui/icons-material";
 
-// const graphData = useEffect((props) => {
-//   setSeries([{
-//     id: "Bankroll",
-//     data: props.data
-//     .sort((r1,r2) => r1.timestamp - r2.timestamp)
-//     .map(bankroll => {
-//       return {
-//       x: bankroll.timestamp,
-//       y: bankroll.amount,
-//     }
-//   })}])
-//     let yValues = props.data.map(d => d.value);
-//     let minValue = yValues.reduce((v1, v2) => v1 > v2 ? v2 : v1);
-//     let maxValue = yValues.reduce((v1, v2) => v1 > v2 ? v1 : v2);
-//     setMinY(minValue - getStdDeviation(yValues));
-//     setMaxY(maxValue + getStdDeviation(yValues));}, [props.data]);
   
-const graphData = (props) => {
-    props.data.map(bankroll => {
+const graphData = (bankrolls) => {
+    return bankrolls.map(bankroll => {
     return { 
-                x: bankroll.timestamp,
+                x: new Date(bankroll.timeStamp),
                 y: bankroll.amount,
             }
         })
 };
 
-const graphPoints = () => {
-    return [ {
-        "id": "Bankroll",
-        "color": "hsl(238, 70%, 50%)",
-        "data": [ graphData() ]
-    }]
-}
 
 
 const Graph = () => {
-  const bankrollQuery = useBankroll()
+  const bankrollQuery = useGetAllBankroll();
 
     return (
+        <div style={{height: 500 + 'px'}}>
         <ResponsiveLine
-            data={graphPoints()}
+            data={[ {
+                "id": "Bankroll",
+                "color": "hsl(238, 70%, 50%)",
+                "data": graphData(bankrollQuery.data || []) 
+            }]}
             margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
-            xScale={{ type: 'point' }}
+            xScale={{ type: 'time', nice: true }}
             yScale={{
                 type: 'linear',
                 min: 'auto',
@@ -53,15 +37,18 @@ const Graph = () => {
                 stacked: true,
                 reverse: false
             }}
-            yFormat=" >-.2f"
-            curve="natural"
+            xFormat= {(timeStamp) => {console.log(timeStamp);
+            return new Date(timeStamp).toLocaleDateString();}} 
+            curve="cardinal"
             axisTop={null}
             axisRight={null}
             axisBottom={{
                 tickSize: 5,
                 tickPadding: 5,
-                tickRotation: 0,
-                legend: 'transportation',
+                tickRotation: 50,
+                tickValues: 5,
+                format: '%d %b',
+                legend: 'Date',
                 legendOffset: 36,
                 legendPosition: 'middle'
             }}
@@ -69,7 +56,7 @@ const Graph = () => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'count',
+                legend: 'Amount',
                 legendOffset: -40,
                 legendPosition: 'middle'
             }}
@@ -106,6 +93,7 @@ const Graph = () => {
                 }
             ]}
         />
+        </div>
     )
 }
 export default Graph;

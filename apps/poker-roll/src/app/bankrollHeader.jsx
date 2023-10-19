@@ -1,24 +1,50 @@
-import React from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { useUser } from "./queries/helpers";
+import React, {useState } from "react";
+import { Card, CardContent, Typography, Button, TextField} from '@mui/material';
+import { useUser } from "@clerk/clerk-react";
+import { useBankroll, useUpdateBankroll } from "./queries/helpers";
 
-const BankrollHeader = (props) => {
-    const userQuery = useUser()
+const BankrollHeader = () => {
+    const [formState, setFormState] = useState({
+        amount: "",
+      });
+      const mutation = useUpdateBankroll();
+      const handleChange = (event) => {
+        const { name, valueAsNumber } = event.target;
 
+        setFormState({
+            ...formState,
+            [name]: valueAsNumber,
+        });
+      }
+    const { user } = useUser();
+    const bankrollQuery = useBankroll();
     return (
         <div>
             <Card sx={{ maxWidth: 345 }}>
                 <CardContent>
                     <Typography gutterBottom variant="h4" component="div">
-                        Welcome {userQuery.data?.user.name}
+                        Welcome {user.firstName}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="div">
-                            Current BankRoll: {userQuery.data?.user.bankroll}
+                            Current BankRoll: ${bankrollQuery.data?.amount}
                     </Typography>
-                    <Button variant="text">Add</Button>
+                    <TextField 
+            label="Amount"
+            variant="outlined"
+            name="amount"
+            type="number"
+            value={formState.amount}
+            onChange={handleChange}
+            size="small"
+            margin="normal"
+          />
+                    <Button 
+                        type="button"
+                        onClick={() => {(mutation.mutate(formState))}}
+                        size="small"
+                    variant="contained"
+                    color="primary"
+                    >Add</Button>
                     <Button variant="text">Subtract</Button>
                 </CardContent>    
             </Card>
