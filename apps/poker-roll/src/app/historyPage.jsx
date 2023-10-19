@@ -14,7 +14,7 @@ const PastSession = () => {
                     <Box>
                         <h4>{session.startTime}</h4>
                         <p>{session.game}</p>
-                        <p>{session.casino}</p>
+                        <p>{session.casino}, {session.location}</p>
                         <span>{session.plusMinus}</span>
                     </Box>
                 </Container>
