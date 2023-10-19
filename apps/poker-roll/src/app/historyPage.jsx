@@ -8,14 +8,14 @@ import { useGetAllSessions } from "./queries/helpers";
 const PastSession = () => {
     const sessionsQuery = useGetAllSessions()
 
-    return sessionsQuery.data?.map((session) => {
+    return sessionsQuery.data?.map(session => {
             return (
                 <Container maxWidth="sm">
                     <Box>
-                        <h4>{sessionsQuery.data?.startTime}</h4>
-                        <p>{sessionsQuery.data?.game}</p>
-                        <p>{sessionsQuery.data?.casino}</p>
-                        <span>{sessionsQuery.data?.plusMinus}</span>
+                        <h4>{session.startTime}</h4>
+                        <p>{session.game}</p>
+                        <p>{session.casino}</p>
+                        <span>{session.plusMinus}</span>
                     </Box>
                 </Container>
     )
