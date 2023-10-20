@@ -3,6 +3,9 @@ import { TextField, Button, Stack } from "@mui/material";
 import { useGetAllSessions } from "./queries/helpers";
 
 function UpdateSessionForm(){
+
+    // set initial form state based on previously input session info when session was created
+    // automatically set endTime, plusMinus, duration properties when 'finish session' button is hit
     const [formState, setFormState] = useState({
         buyIn: "",
         game: "",
@@ -57,6 +60,15 @@ function UpdateSessionForm(){
         size="small"
         margin="normal"
         />
+        <Button 
+        type="button"
+        onClick={() => {(mutation.mutate(formState))}}
+        size= "small"
+        variant="contained"
+        color="primary"
+        >
+            Finish Session
+        </Button>
 
         </Stack>
     )
