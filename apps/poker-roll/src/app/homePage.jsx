@@ -1,5 +1,6 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
+import ActiveSession from "./activeSessionComponent";
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -51,6 +52,9 @@ function Home() {
                 <div>
                     <div>
                         <h1>Poker Roll</h1>
+                    </div>
+                    <div>
+                        <ActiveSession/>
                     </div>
                     <div>
                         <Outlet />

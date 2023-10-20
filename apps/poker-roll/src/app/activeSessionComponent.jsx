@@ -28,3 +28,5 @@ const ActiveSession = () => {
         )
     })
 }
+
+module.exports = ActiveSession;
