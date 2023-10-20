@@ -29,4 +29,4 @@ const ActiveSession = () => {
     })
 }
 
-module.exports = ActiveSession;
+export default ActiveSession;

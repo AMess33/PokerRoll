@@ -72,4 +72,4 @@ function UpdateSessionForm(){
     )
 }
 
-module.exports = UpdateSessionForm;
+export default UpdateSessionForm;
