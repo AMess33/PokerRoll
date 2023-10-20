@@ -71,3 +71,5 @@ function UpdateSessionForm(){
         </Stack>
     )
 }
+
+module.exports = UpdateSessionForm;
