@@ -34,7 +34,7 @@ const sessionSchema = new Schema({
   duration: {type: Number,},
   // duration of session, difference of end and start times
   plusMinus: {type: Number,},
-  note: {type: String,},
+  notes: {type: String,},
 });
 
 // start new session
