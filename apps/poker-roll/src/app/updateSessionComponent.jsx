@@ -6,11 +6,9 @@ function UpdateSessionForm(){
 
     // set initial form state based on previously input session info when session was created
     // automatically set endTime, plusMinus, duration properties when 'finish session' button is hit
+    // 'finish session' button should also create a new bankroll entry to properly update bankroll graph
     const [formState, setFormState] = useState({
         buyIn: "",
-        game: "",
-        casino: "",
-        location: "",
         outFor: "",
         notes: "",
     });
