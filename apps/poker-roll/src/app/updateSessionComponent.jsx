@@ -37,6 +37,27 @@ function UpdateSessionForm(){
         size="small"
         margin="normal"
         />
+        <TextField
+        label="Cash Out Total"
+        variant="outlined"
+        name="outFor"
+        type="text"
+        value={formState.outFor}
+        onChange={handleChange}
+        size="small"
+        margin="normal"
+        />
+        <TextField
+        label="Notes"
+        variant="outlined"
+        name="notes"
+        type="text"
+        value={formState.notes}
+        onChange={handleChange}
+        size="small"
+        margin="normal"
+        />
+
         </Stack>
     )
 }
