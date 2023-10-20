@@ -1,9 +1,11 @@
 const { Session } = require('../models');
 const mongoose = require('mongoose');
-// get logged in users sessions
-// create session
-// update session
-// dont think i want the ability to delete a session
+// get logged in users sessions X
+// create session X
+// update session X
+
+// get any active sessions (sessions without an end time)
+    // post with additional data (end time, out for, plus minus calculated, notes)
 
 module.exports = {
   async createSession(req, res) {

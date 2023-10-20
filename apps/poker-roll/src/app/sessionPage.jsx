@@ -7,6 +7,9 @@ import { useCreateSession } from "./queries/helpers";
 
 // session page will allow you to start a new session, cash or tournament
 
+// update session form to edit/add additional session iformation not in the begin session form
+// outfor, end time, plus minus
+
 function CashGameForm(){
     const [formState, setFormState] = useState({
         buyIn: "",

@@ -24,6 +24,8 @@ module.exports = {
     // find most recent bankroll X
     // add or subtract an amount from recent X
     // create new bankroll with updated amount X
+
+    
     async updateBankroll(req, res) {
         try {
             console.log(req.body);

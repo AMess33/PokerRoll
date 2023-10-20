@@ -35,7 +35,10 @@ function PokerRoll() {
     )
   }
 
-//   homepage displays App Name Header, OUTLET (Bankroll, new session, history), Bottom Nav
+//   homepage displays App Name Header, OUTLET (Bankroll, new session, history), Bottom Nav, also display any un ended sessions to be updated 
+// show ACTIVE sessions that do not have an end time, so they may be updated
+// click on active session will bring up update/edit session form
+
 
 function Home() {
     const { isLoaded } = useUser();

@@ -3,6 +3,8 @@ import { Card, CardContent, Typography, Button, TextField} from '@mui/material';
 import { useUser } from "@clerk/clerk-react";
 import { useBankroll, useUpdateBankroll } from "./queries/helpers";
 
+// add a notes field for bankroll editing
+
 const BankrollHeader = () => {
     const [formState, setFormState] = useState({
         amount: "",
