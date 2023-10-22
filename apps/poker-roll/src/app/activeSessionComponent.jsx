@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Container } from "@mui/material";
 import { useGetAllSessions } from "./queries/helpers";
-import updateSessionForm from "./updateSessionComponent";
+import UpdateSessionForm from "./updateSessionComponent";
 
 // get all sessions without an 'endTime' and display them as Active Sessions on the homepage
 
@@ -16,7 +16,7 @@ const ActiveSession = () => {
                     <p>{session.casino}, {session.location}</p>
                     <Button
                     type="button"
-                    onClick={<updateSessionForm/>}
+                    onClick={<UpdateSessionForm />}
                     size="small"
                     variant="contained"
                     color="primary"
