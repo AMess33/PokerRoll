@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useUser } from "@clerk/clerk-react";
 
+// set up a date.now function to be used in start time and end time and displayed as intended on app
 export function useSessions() {
   const user = useUser();
   return useQuery({ queryKey: ['sessions', user.user.id], queryFn: () => {
