@@ -2,6 +2,14 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useUser } from "@clerk/clerk-react";
 
 // set up a date.now function to be used in start time and end time and displayed as intended on app
+export function timeStamp() {
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Month is zero-based
+  const day = currentDate.getDate().toString().padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
+}
 export function useSessions() {
   const user = useUser();
   return useQuery({ queryKey: ['sessions', user.user.id], queryFn: () => {
