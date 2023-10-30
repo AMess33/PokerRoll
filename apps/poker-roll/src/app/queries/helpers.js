@@ -10,6 +10,8 @@ export function currentDateStamp() {
   const hours = currentDate.getHours().toString().padStart(2, '0');
   const minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
+  // return as string and stored in database as startTime and endTime
+
   return `${year}-${month}-${day} ${hours}:${minutes}`;
 }
 
@@ -17,6 +19,8 @@ export function timeStamp() {
   const currentDate = new Date();
   const hours = currentDate.getHours().toString().padStart(2, '0');
   const minutes = currentDate.getMinutes().toString().padStart(2, '0');
+
+  // return as number so duration can be calculated in hours w/ decimals 1.5 hrs
   return `${hours}:${minutes}`;
 }
 
