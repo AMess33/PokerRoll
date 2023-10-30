@@ -10,7 +10,7 @@ const ActiveSession = () => {
 
     return sessionsQuery.data?.map(session => {
         return (
-            <Container maxWidth="sm">
+            <Container style={{border: '2px solid rgba(0, 0, 0, 0.05)'}} maxWidth="sm">
                 <Box>
                     <h4>{session.game}</h4>
                     <p>{session.casino}, {session.location}</p>
