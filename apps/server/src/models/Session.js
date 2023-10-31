@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-import { currentDateStamp, timeStamp } from '../../../poker-roll/src/app/queries/helpers';
 
 const sessionSchema = new Schema({
   userID: {
@@ -30,11 +29,11 @@ const sessionSchema = new Schema({
   inFor: {type: Number,},
   outFor: { type: Number,},
   // format start and end times for easy calculations in duration and plus minus (ie. 1.5 hours/ 1 decimal)
-  startTime: { type: String, default: `${currentDateStamp()} ${timeStamp()}` },
-  endTime: { type: String, default: `${currentDateStamp()} ${timeStamp()}` },
-  duration: {type: Number,},
-  // duration of session, difference of end and start times
-  plusMinus: {type: Number,},
+  startTime: { type: Date, default: Date.now},
+  endTime: { type: Date, },
+  // duration: {type: Number,},
+  // // duration of session, difference of end and start times
+  // plusMinus: {type: Number,},
   notes: {type: String,},
 });
 
