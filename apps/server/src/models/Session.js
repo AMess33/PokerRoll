@@ -5,14 +5,14 @@ const sessionSchema = new Schema({
   userID: {
     type: String,
     required: true,
-},
+  },
   game: {
     type: String,
     required: true,
     max_length: 50,
   },
   buyIn: {
-    type: String,
+    type: Number,
     required: true,
     max_length: 50,
   },
@@ -26,15 +26,15 @@ const sessionSchema = new Schema({
     required: true,
     max_length: 50,
   },
-  inFor: {type: Number,},
-  outFor: { type: Number,},
+  inFor: { type: Number },
+  outFor: { type: Number },
   // format start and end times for easy calculations in duration and plus minus (ie. 1.5 hours/ 1 decimal)
-  startTime: { type: Date, default: Date.now},
-  endTime: { type: Date, },
+  startTime: { type: Date, default: Date.now },
+  endTime: { type: Date },
   // duration: {type: Number,},
   // // duration of session, difference of end and start times
   // plusMinus: {type: Number,},
-  notes: {type: String,},
+  notes: { type: String },
 });
 
 // start new session
