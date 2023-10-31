@@ -31,13 +31,17 @@ const ActiveSession = (props) => {
           Finish Session
         </Button>
       </Box>
-      {isUpdating && <UpdateSessionForm />}
+      {isUpdating && <UpdateSessionForm session={props.session} />}
     </Container>
   );
 };
 const ActiveSessionContainer = () => {
   const sessionsQuery = useGetAllSessions();
+  console.log(sessionsQuery.data);
   return sessionsQuery.data?.map((session) => {
+    if (session.endTime) {
+      return null;
+    }
     return <ActiveSession session={session} />;
   });
 };

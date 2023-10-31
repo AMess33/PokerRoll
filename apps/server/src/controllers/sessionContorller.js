@@ -36,19 +36,20 @@ module.exports = {
   },
   async getAllSessions(req, res) {
     try {
-      let session = await Session.find(
+      let sessions = await Session.find(
         { userID: req.query.id },
         {},
         { sort: { startTime: -1 } }
       );
       // import dayJS library to use for duration calculation
-      let ResponseSession = {
-        ...session,
-        duration: () => null,
-        plusMinus: () => null,
-      };
-
-      res.json(ResponseSession);
+      let ResponseSessions = sessions.map((session) => {
+        return {
+          ...session._doc,
+          duration: () => null,
+          plusMinus: () => null,
+        };
+      });
+      res.json(ResponseSessions);
     } catch (err) {
       res.status(500).json(err);
     }
