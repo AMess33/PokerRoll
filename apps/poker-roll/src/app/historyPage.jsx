@@ -24,7 +24,10 @@ const PastSession = () => {
     const perHour = Math.floor(plusMinus / duration);
 
     return (
-      <Container maxWidth="sm">
+      <Container
+        style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
+        maxWidth="sm"
+      >
         <Box>
           <h4>{formatDate}</h4>
           <p>{session.game}</p>
