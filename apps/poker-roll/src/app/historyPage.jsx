@@ -18,6 +18,10 @@ const PastSession = () => {
     const end = dayjs(session.endTime);
     const duration = end.diff(`${start}`, 'hour', true).toFixed('1');
     const formatDate = dayjs(session.startTime).format('MM/DD/YY');
+    const inFor = Number(`${session.buyIn}`);
+    const outFor = Number(`${session.outFor}`);
+    const plusMinus = Math.floor(outFor - inFor);
+    const perHour = Math.floor(plusMinus / duration);
 
     return (
       <Container maxWidth="sm">
@@ -27,8 +31,9 @@ const PastSession = () => {
           <p>
             {session.casino}, {session.location}
           </p>
-          <span>{duration} Hours</span>
-          <span>{session.plusMinus}</span>
+          <span> {duration} Hours </span>
+          <span> ${plusMinus} </span>
+          <span> ${perHour} /hour</span>
         </Box>
       </Container>
     );
