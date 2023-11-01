@@ -1,9 +1,11 @@
 const { Session } = require('../models');
 const mongoose = require('mongoose');
-// get logged in users sessions
-// create session
-// update session
-// dont think i want the ability to delete a session
+// get logged in users sessions X
+// create session X
+// update session X
+
+// get any active sessions (sessions without an end time)
+// post with additional data (end time, out for, plus minus calculated, notes)
 
 module.exports = {
   async createSession(req, res) {
@@ -19,7 +21,7 @@ module.exports = {
     try {
       const session = await Session.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(req.body.id) },
-        { $set: req.body },
+        { $set: { ...req.body, endTime: Date.now() } },
         { new: true }
       );
       if (!session) {
@@ -32,12 +34,24 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async getAllSessions( req, res) {
+  async getAllSessions(req, res) {
     try {
-      let session = await Session.find({userID: req.query.id}, {}, { sort: {'startTime' : -1}});
-      res.json(session);
+      let sessions = await Session.find(
+        { userID: req.query.id },
+        {},
+        { sort: { startTime: -1 } }
+      );
+      // import dayJS library to use for duration calculation
+      let ResponseSessions = sessions.map((session) => {
+        return {
+          ...session._doc,
+          duration: () => null,
+          plusMinus: () => null,
+        };
+      });
+      res.json(ResponseSessions);
     } catch (err) {
       res.status(500).json(err);
     }
-  }
+  },
 };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import BottomNav from "./bottomNav";
+import ActiveSession from "./activeSessionComponent";
 import { 
     BrowserRouter as Router,
     Outlet,
@@ -35,7 +36,10 @@ function PokerRoll() {
     )
   }
 
-//   homepage displays App Name Header, OUTLET (Bankroll, new session, history), Bottom Nav
+//   homepage displays App Name Header, Active Sessions, OUTLET (Bankroll, new session, history), Bottom Nav
+// show ACTIVE sessions that do not have an end time, so they may be updated X
+// click on active session will bring up update/edit session form X
+
 
 function Home() {
     const { isLoaded } = useUser();
@@ -48,6 +52,9 @@ function Home() {
                 <div>
                     <div>
                         <h1>Poker Roll</h1>
+                    </div>
+                    <div>
+                        <ActiveSession/>
                     </div>
                     <div>
                         <Outlet />
