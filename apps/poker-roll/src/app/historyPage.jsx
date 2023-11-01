@@ -11,6 +11,9 @@ const PastSession = () => {
   const sessionsQuery = useGetAllSessions();
 
   return sessionsQuery.data?.map((session) => {
+    if (!session.endTime) {
+      return null;
+    }
     const start = dayjs(session.startTime);
     const end = dayjs(session.endTime);
     const duration = end.diff(`${start}`, 'hour', true).toFixed('1');
