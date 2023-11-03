@@ -24,21 +24,23 @@ const PastSession = () => {
     const perHour = Math.floor(plusMinus / duration);
 
     return (
-      <Container
-        style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
-        maxWidth="sm"
-      >
-        <Box>
-          <h4>{formatDate}</h4>
-          <p>{session.game}</p>
-          <p>
-            {session.casino}, {session.location}
-          </p>
-          <span> {duration} Hours </span>
-          <span> ${plusMinus} </span>
-          <span> ${perHour} /hour</span>
-        </Box>
-      </Container>
+      <div key={session.id}>
+        <Container
+          style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
+          maxWidth="sm"
+        >
+          <Box>
+            <h4>{formatDate}</h4>
+            <p>{session.game}</p>
+            <p>
+              {session.casino}, {session.location}
+            </p>
+            <span> {duration} Hours </span>
+            <span> ${plusMinus} </span>
+            <span> ${perHour} /hour</span>
+          </Box>
+        </Container>
+      </div>
     );
   });
 };
