@@ -26,7 +26,7 @@ const PastSession = () => {
         <Container
           style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
           maxWidth="sm"
-          key={session.id}
+          key={session._id}
         >
           <Box>
             <h4>{formatDate}</h4>

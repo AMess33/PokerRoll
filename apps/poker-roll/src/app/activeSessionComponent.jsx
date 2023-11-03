@@ -38,7 +38,7 @@ const ActiveSessionContainer = () => {
     if (session.endTime) {
       return null;
     }
-    return <ActiveSession key={session.id} session={session} />;
+    return <ActiveSession key={session._id} session={session} />;
   });
 };
 
