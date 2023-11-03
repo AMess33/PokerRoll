@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 module.exports = {
   async createSession(req, res) {
     try {
-      console.log(req.body);
       const session = await Session.create(req.body);
       res.json(session);
     } catch (err) {
@@ -27,7 +26,6 @@ module.exports = {
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
       }
-      console.log(session);
       res.json('Session Updated Sucessfully');
     } catch (err) {
       console.log(err);

@@ -12,10 +12,7 @@ const ActiveSession = (props) => {
     setIsUpdating(true);
   };
   return (
-    <Container
-      style={{ border: '2px solid rgba(0, 0, 0, 0.05)' }}
-      maxWidth="sm"
-    >
+    <Container style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }} maxWidth="sm">
       <Box>
         <h4>{props.session.game}</h4>
         <p>
@@ -37,12 +34,11 @@ const ActiveSession = (props) => {
 };
 const ActiveSessionContainer = () => {
   const sessionsQuery = useGetAllSessions();
-  console.log(sessionsQuery.data);
   return sessionsQuery.data?.map((session) => {
     if (session.endTime) {
       return null;
     }
-    return <ActiveSession session={session} />;
+    return <ActiveSession key={session._id} session={session} />;
   });
 };
 
