@@ -16,7 +16,7 @@ const PastSession = () => {
     }
     const start = dayjs(session.startTime);
     const end = dayjs(session.endTime);
-    const duration = end.diff(`${start}`, 'hour', true).toFixed('1');
+    const duration = end.diff(start, 'hour', true).toFixed('1');
     const formatDate = dayjs(session.startTime).format('MM/DD/YY');
     const inFor = Number(`${session.buyIn}`);
     const outFor = Number(`${session.outFor}`);
