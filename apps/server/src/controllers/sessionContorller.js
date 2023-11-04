@@ -17,6 +17,10 @@ module.exports = {
     }
   },
   async updateSession(req, res) {
+    // need to create a new bankroll entry when a session is completed
+    // get most recent bankroll entry
+    // figure out how to access the PLUS/MINUS on the session
+    // create new bankroll with previous bankroll + PLUS/MINUS
     try {
       const session = await Session.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(req.body.id) },
@@ -39,7 +43,6 @@ module.exports = {
         {},
         { sort: { startTime: -1 } }
       );
-      // import dayJS library to use for duration calculation
       let ResponseSessions = sessions.map((session) => {
         return {
           ...session._doc,
