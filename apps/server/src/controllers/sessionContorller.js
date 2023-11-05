@@ -1,4 +1,4 @@
-const { Session } = require('../models');
+const { Session, Bankroll } = require('../models');
 const mongoose = require('mongoose');
 // get logged in users sessions X
 // create session X
@@ -31,6 +31,22 @@ module.exports = {
         return res.status(404).json({ message: 'No session with this id!' });
       }
       res.json('Session Updated Sucessfully');
+      const bankroll = await Bankroll.findOne(
+        { userID: req.body.id },
+        {},
+        { sort: { timeStamp: -1 } }
+      );
+      if (!bankroll) {
+        return res.status(404).json({ message: 'No Bankroll Found' });
+      }
+      const plusMinus = req.body.buyIn + req.body.outFor;
+      const newAmount = bankroll.amount + plusMinus;
+      const newBankroll = await Bankroll.create({
+        userID: req.body.id,
+        amount: newAmount,
+      });
+      console.log(newBankroll);
+      res.json('Bankroll Updated!');
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
