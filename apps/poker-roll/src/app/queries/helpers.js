@@ -86,6 +86,7 @@ export function useUpdateSession() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sessions'] });
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
     },
   });
 }
@@ -117,7 +118,7 @@ export function useUpdateBankroll() {
     mutationFn: (formState) => {
       return fetch('http://localhost:3333/api/bankroll', {
         method: 'POST',
-        body: JSON.stringify({ ...formState, userID: user.user.id }),
+        body: JSON.stringify({ ...formState, id: user.user.id }),
         headers: { 'Content-Type': 'application/json' },
       });
     },

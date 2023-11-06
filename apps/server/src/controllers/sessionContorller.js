@@ -1,4 +1,4 @@
-const { Session } = require('../models');
+const { Session, Bankroll } = require('../models');
 const mongoose = require('mongoose');
 // get logged in users sessions X
 // create session X
@@ -17,16 +17,41 @@ module.exports = {
     }
   },
   async updateSession(req, res) {
+    // need to create a new bankroll entry when a session is completed
+    // get most recent bankroll entry
+    // figure out how to access the PLUS/MINUS on the session
+    // create new bankroll with previous bankroll + PLUS/MINUS
     try {
       const session = await Session.findOneAndUpdate(
         { _id: new mongoose.Types.ObjectId(req.body.id) },
         { $set: { ...req.body, endTime: Date.now() } },
         { new: true }
       );
+      console.log(session);
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
       }
-      res.json('Session Updated Sucessfully');
+      let bankroll = await Bankroll.findOne(
+        // find most recent bankroll with the userID
+        { userID: session.userID },
+        {},
+        { sort: { timeStamp: -1 } }
+      );
+      console.log(bankroll);
+      if (!bankroll) {
+        return res.status(404).json({ message: 'No Bankroll Found' });
+      }
+      const inFor = Number(`${req.body.buyIn}`);
+      const outFor = Number(`${req.body.outFor}`);
+      const previousAmount = Number(`${bankroll.amount}`);
+      const plusMinus = Math.floor(outFor - inFor);
+      const newAmount = Math.floor(previousAmount + plusMinus);
+      const newBankroll = await Bankroll.create({
+        userID: session.userID,
+        amount: newAmount,
+      });
+      console.log(newBankroll);
+      res.json('Bankroll Updated!');
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -39,7 +64,6 @@ module.exports = {
         {},
         { sort: { startTime: -1 } }
       );
-      // import dayJS library to use for duration calculation
       let ResponseSessions = sessions.map((session) => {
         return {
           ...session._doc,
