@@ -33,7 +33,7 @@ module.exports = {
       }
       let bankroll = await Bankroll.findOne(
         // find most recent bankroll with the userID
-        { _id: new mongoose.Types.ObjectId(req.body.id) },
+        { userID: session.userID },
         {},
         { sort: { timeStamp: -1 } }
       );
@@ -41,10 +41,13 @@ module.exports = {
       if (!bankroll) {
         return res.status(404).json({ message: 'No Bankroll Found' });
       }
-      const plusMinus = req.body.buyIn + req.body.outFor;
-      const newAmount = bankroll.amount + plusMinus;
+      const inFor = Number(`${req.body.buyIn}`);
+      const outFor = Number(`${req.body.outFor}`);
+      const previousAmount = Number(`${bankroll.amount}`);
+      const plusMinus = Math.floor(outFor - inFor);
+      const newAmount = Math.floor(previousAmount + plusMinus);
       const newBankroll = await Bankroll.create({
-        userID: req.body.id,
+        userID: session.userID,
         amount: newAmount,
       });
       console.log(newBankroll);

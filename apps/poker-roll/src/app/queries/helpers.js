@@ -85,7 +85,8 @@ export function useUpdateSession() {
       });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['sessions', 'bankroll'] });
+      queryClient.invalidateQueries({ queryKey: ['sessions'] });
+      queryClient.invalidateQueries({ queryKey: ['bankroll'] });
     },
   });
 }
