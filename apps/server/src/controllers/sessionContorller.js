@@ -27,15 +27,17 @@ module.exports = {
         { $set: { ...req.body, endTime: Date.now() } },
         { new: true }
       );
+      console.log(session);
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
       }
-      res.json('Session Updated Sucessfully');
-      const bankroll = await Bankroll.findOne(
-        { userID: req.body.id },
+      let bankroll = await Bankroll.findOne(
+        // find most recent bankroll with the userID
+        { _id: new mongoose.Types.ObjectId(req.body.id) },
         {},
         { sort: { timeStamp: -1 } }
       );
+      console.log(bankroll);
       if (!bankroll) {
         return res.status(404).json({ message: 'No Bankroll Found' });
       }
