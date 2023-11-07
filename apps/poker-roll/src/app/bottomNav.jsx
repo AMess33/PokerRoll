@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { 
-    BrowserRouter as Router,
-    Outlet,
-    Switch,
-    useLocation,
-    useNavigate
-} from "react-router-dom";
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Outlet,
+  Switch,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -14,28 +14,56 @@ import TableBarIcon from '@mui/icons-material/TableBar';
 import PaidIcon from '@mui/icons-material/Paid';
 
 export default function BottomNav() {
-        const location = useLocation();
-        const navigate = useNavigate();
-    
-        const handleNavigation = (newValue) => {
-            navigate(newValue);
-        };
-    
-    return (
-        <div className="footer">
-            <Box sx={{ width: 500 }}>
-                <BottomNavigation
-                 showLabels
-                 value={location.pathname}
-                 onChange={(event, newValue) => {
-                    handleNavigation(newValue);
-                }}
-            >
-                    <BottomNavigationAction value="/bankroll" label="BankRoll"  icon={<PaidIcon />} />
-                    <BottomNavigationAction value="/session" label="New Session"  icon={<TableBarIcon />} />
-                    <BottomNavigationAction value="/history" label="History"  icon={<EmojiEventsIcon />} />
-                </BottomNavigation>
-             </Box>
-        </div>
-    );
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigation = (newValue) => {
+    navigate(newValue);
+  };
+
+  return (
+    <div className="footer">
+      <Box
+        sx={{
+          width: 500,
+          position: 'fixed',
+          bottom: 0,
+          borderTop: 1,
+          color: '#ffeb3b',
+        }}
+      >
+        <BottomNavigation
+          showLabels
+          value={location.pathname}
+          onChange={(event, newValue) => {
+            handleNavigation(newValue);
+          }}
+        >
+          <BottomNavigationAction
+            sx={{ color: '#0288d1' }}
+            value="/bankroll"
+            label="BankRoll"
+            icon={<PaidIcon />}
+          />
+          <BottomNavigationAction
+            sx={{
+              color: '#0288d1',
+              borderLeft: 1,
+              borderRight: 1,
+              borderColor: '#ffeb3b',
+            }}
+            value="/session"
+            label="New Session"
+            icon={<TableBarIcon />}
+          />
+          <BottomNavigationAction
+            sx={{ color: '#0288d1' }}
+            value="/history"
+            label="History"
+            icon={<EmojiEventsIcon />}
+          />
+        </BottomNavigation>
+      </Box>
+    </div>
+  );
 }
