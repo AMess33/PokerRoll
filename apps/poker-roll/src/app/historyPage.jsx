@@ -30,7 +30,7 @@ const PastSession = () => {
           key={session._id}
         >
           <Box>
-            <h4>
+            <h4 style={{ margin: '0', textAlign: 'center' }}>
               {formatDate} {session.game}
             </h4>
             <div>

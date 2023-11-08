@@ -18,11 +18,11 @@ const ActiveSession = (props) => {
         style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
         maxWidth="sm"
       >
-        <Box textAlign={'center'}>
-          <h4>{props.session.game}</h4>
-          <p>
+        <Box sx={{ m: 1 }} textAlign={'center'}>
+          <h4 style={{ margin: '0' }}>{props.session.game}</h4>
+          <div>
             {props.session.casino}, {props.session.location}
-          </p>
+          </div>
           <Button
             type="button"
             onClick={finishSession}
