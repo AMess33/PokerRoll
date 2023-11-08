@@ -28,16 +28,14 @@ const BankrollHeader = () => {
   const bankrollQuery = useBankroll();
   return (
     <div>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ textAlign: 'center' }}>
         <CardContent>
-          <Typography gutterBottom variant="h4" component="div">
-            Welcome {user.firstName}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div">
-            Current BankRoll: ${bankrollQuery.data?.amount}
+          <Typography variant="h4" component="div">
+            {user.firstName}'s Bankroll: ${bankrollQuery.data?.amount}
           </Typography>
           <TextField
-            label="Amount"
+            sx={{ width: '50%' }}
+            label="Add or Subtract from your Bankroll"
             variant="outlined"
             name="amount"
             type="number"
@@ -46,17 +44,19 @@ const BankrollHeader = () => {
             size="small"
             margin="normal"
           />
-          <Button
-            type="button"
-            onClick={() => {
-              mutation.mutate(formState);
-            }}
-            size="small"
-            variant="contained"
-            color="primary"
-          >
-            Update
-          </Button>
+          <div>
+            <Button
+              type="button"
+              onClick={() => {
+                mutation.mutate(formState);
+              }}
+              size="small"
+              variant="contained"
+              color="primary"
+            >
+              Update Bankroll
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
