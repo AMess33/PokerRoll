@@ -42,7 +42,7 @@ function Home() {
     <div>
       <SignedIn>
         <div>
-          <div>
+          <div className="header">
             <h1>Poker Roll</h1>
           </div>
           <div>
