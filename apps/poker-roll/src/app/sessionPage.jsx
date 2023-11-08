@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { TextField, Button, Stack } from '@mui/material';
+import { TextField, Button, Stack, Box } from '@mui/material';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { useCreateSession } from './queries/helpers';
@@ -28,7 +28,7 @@ function CashGameForm() {
   };
   return (
     <Stack
-      spacing={2}
+      spacing={1}
       direction="column"
       justifyContent="center"
       alignItems="center"
@@ -179,16 +179,24 @@ const NewSession = (props) => {
 
   return (
     <div>
-      <ToggleButtonGroup
-        color="primary"
-        value={gameType}
-        exclusive
-        onChange={handleToggleChange}
-        aria-label="Platform"
+      <Box
+        sx={{ m: 2 }}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
       >
-        <ToggleButton value="cashgame">Cash Game</ToggleButton>
-        <ToggleButton value="tournament">Tournament</ToggleButton>
-      </ToggleButtonGroup>
+        <ToggleButtonGroup
+          color="primary"
+          value={gameType}
+          exclusive
+          onChange={handleToggleChange}
+          aria-label="Platform"
+        >
+          <ToggleButton value="cashgame">Cash Game</ToggleButton>
+          <ToggleButton value="tournament">Tournament</ToggleButton>
+        </ToggleButtonGroup>
+      </Box>
       {/* change which stack is show depending on cashgame or tournament is selected */}
       {gameType === 'cashgame' ? <CashGameForm /> : <TournamentForm />}
     </div>
