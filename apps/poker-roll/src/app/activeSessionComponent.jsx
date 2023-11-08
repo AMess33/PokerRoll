@@ -12,24 +12,31 @@ const ActiveSession = (props) => {
     setIsUpdating(true);
   };
   return (
-    <Container style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }} maxWidth="sm">
-      <Box>
-        <h4>{props.session.game}</h4>
-        <p>
-          {props.session.casino}, {props.session.location}
-        </p>
-        <Button
-          type="button"
-          onClick={finishSession}
-          size="small"
-          variant="contained"
-          color="primary"
-        >
-          Finish Session
-        </Button>
-      </Box>
-      {isUpdating && <UpdateSessionForm session={props.session} />}
-    </Container>
+    <div>
+      <h2>Active Sessions</h2>
+      <Container
+        style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
+        maxWidth="sm"
+      >
+        <Box textAlign={'center'}>
+          <h4>{props.session.game}</h4>
+          <p>
+            {props.session.casino}, {props.session.location}
+          </p>
+          <Button
+            type="button"
+            onClick={finishSession}
+            size="small"
+            variant="contained"
+            color="primary"
+            justifyContent="center"
+          >
+            Finish Session
+          </Button>
+        </Box>
+        {isUpdating && <UpdateSessionForm session={props.session} />}
+      </Container>
+    </div>
   );
 };
 const ActiveSessionContainer = () => {
