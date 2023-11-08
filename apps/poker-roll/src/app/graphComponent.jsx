@@ -27,7 +27,7 @@ const Graph = () => {
             data: graphData(bankrollQuery.data || []),
           },
         ]}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 20, bottom: 50, left: 50 }}
         xScale={{ type: 'time', nice: true }}
         yScale={{
           type: 'linear',
@@ -39,7 +39,7 @@ const Graph = () => {
         xFormat={(timeStamp) => {
           return new Date(timeStamp).toLocaleDateString();
         }}
-        curve="cardinal"
+        curve="monotoneY"
         axisTop={null}
         axisRight={null}
         axisBottom={{
