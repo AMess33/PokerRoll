@@ -11,6 +11,7 @@ import {
   useUser,
   RedirectToSignIn,
 } from '@clerk/clerk-react';
+import { Box } from '@mui/material';
 
 if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
@@ -54,6 +55,7 @@ function Home() {
           <div>
             <BottomNav />
           </div>
+          <Box sx={{ height: '55px' }}></Box>
         </div>
       </SignedIn>
       <SignedOut>
