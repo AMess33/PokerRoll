@@ -22,48 +22,54 @@ export default function BottomNav() {
   };
 
   return (
-    <div className="footer">
-      <Box
-        sx={{
-          width: 500,
-          position: 'fixed',
-          bottom: 0,
-          borderTop: 1,
-          color: '#ffeb3b',
+    <Box
+      sx={{
+        width: 1,
+        position: 'fixed',
+        bottom: 0,
+      }}
+    >
+      <BottomNavigation
+        showLabels
+        value={location.pathname}
+        onChange={(event, newValue) => {
+          handleNavigation(newValue);
         }}
       >
-        <BottomNavigation
-          showLabels
-          value={location.pathname}
-          onChange={(event, newValue) => {
-            handleNavigation(newValue);
+        <BottomNavigationAction
+          sx={{
+            color: '#0288d1',
+            bgcolor: '#bdbdbd',
+            border: 2,
+            borderColor: '#0288d1',
           }}
-        >
-          <BottomNavigationAction
-            sx={{ color: '#0288d1' }}
-            value="/bankroll"
-            label="BankRoll"
-            icon={<PaidIcon />}
-          />
-          <BottomNavigationAction
-            sx={{
-              color: '#0288d1',
-              borderLeft: 1,
-              borderRight: 1,
-              borderColor: '#ffeb3b',
-            }}
-            value="/session"
-            label="New Session"
-            icon={<TableBarIcon />}
-          />
-          <BottomNavigationAction
-            sx={{ color: '#0288d1' }}
-            value="/history"
-            label="History"
-            icon={<EmojiEventsIcon />}
-          />
-        </BottomNavigation>
-      </Box>
-    </div>
+          value="/bankroll"
+          label="BankRoll"
+          icon={<PaidIcon />}
+        />
+        <BottomNavigationAction
+          sx={{
+            color: '#0288d1',
+            bgcolor: '#bdbdbd',
+            border: 2,
+            borderColor: '#0288d1',
+          }}
+          value="/session"
+          label="New Session"
+          icon={<TableBarIcon />}
+        />
+        <BottomNavigationAction
+          sx={{
+            color: '#0288d1',
+            bgcolor: '#bdbdbd',
+            border: 2,
+            borderColor: '#0288d1',
+          }}
+          value="/history"
+          label="History"
+          icon={<EmojiEventsIcon />}
+        />
+      </BottomNavigation>
+    </Box>
   );
 }
