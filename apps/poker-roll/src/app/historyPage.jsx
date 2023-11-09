@@ -24,16 +24,18 @@ const PastSession = () => {
 
       return (
         <Container
+          sx={{ mt: 2 }}
           style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
           maxWidth="sm"
           key={session._id}
         >
           <Box>
-            <h4>{formatDate}</h4>
-            <p>{session.game}</p>
-            <p>
+            <h4 style={{ margin: '0', textAlign: 'center' }}>
+              {formatDate} {session.game}
+            </h4>
+            <div>
               {session.casino}, {session.location}
-            </p>
+            </div>
             <span> {duration} Hours </span>
             <span> ${plusMinus} </span>
             <span> ${perHour} /hour</span>
@@ -46,6 +48,7 @@ const PastSession = () => {
 const History = (props) => {
   return (
     <div>
+      <h2>Completed Sessions</h2>
       <PastSession />
     </div>
   );
