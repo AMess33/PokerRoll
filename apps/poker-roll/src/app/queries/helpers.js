@@ -1,14 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useUser } from '@clerk/clerk-react';
-
+const NX_BASEURL =
+  process.env.NX_TASK_TARGET_CONFIGURATION === 'development'
+    ? 'http://localhost:3333/api'
+    : 'https://pokerroll.fly.dev/api';
 // use dayjs library for currentDateStamp and timeStamp functions
 export function useSessions() {
   const user = useUser();
   return useQuery({
     queryKey: ['sessions', user.user.id],
     queryFn: () => {
-      return fetch(process.env.NX_BASEURL + `/session?id=${user.user.id}`).then(
-        (res) => res.json()
+      return fetch(NX_BASEURL + `/session?id=${user.user.id}`).then((res) =>
+        res.json()
       );
     },
   });
@@ -19,9 +22,9 @@ export function useGetAllSessions() {
   return useQuery({
     queryKey: ['sessions', 'all', user.user.id],
     queryFn: () => {
-      return fetch(
-        process.env.NX_BASEURL + `/allsessions?id=${user.user.id}`
-      ).then((res) => res.json());
+      return fetch(NX_BASEURL + `/allsessions?id=${user.user.id}`).then((res) =>
+        res.json()
+      );
     },
   });
 }
@@ -32,9 +35,9 @@ export function useBankroll() {
   return useQuery({
     queryKey: ['bankroll', user.user.id],
     queryFn: () => {
-      return fetch(
-        process.env.NX_BASEURL + `/bankroll?id=${user.user.id}`
-      ).then((res) => res.json());
+      return fetch(NX_BASEURL + `/bankroll?id=${user.user.id}`).then((res) =>
+        res.json()
+      );
     },
   });
 }
@@ -45,9 +48,9 @@ export function useGetAllBankroll() {
   return useQuery({
     queryKey: ['bankroll', 'all', user.user.id],
     queryFn: () => {
-      return fetch(
-        process.env.NX_BASEURL + `/allbankroll?id=${user.user.id}`
-      ).then((res) => res.json());
+      return fetch(NX_BASEURL + `/allbankroll?id=${user.user.id}`).then((res) =>
+        res.json()
+      );
     },
   });
 }
@@ -58,7 +61,7 @@ export function useCreateSession() {
 
   return useMutation({
     mutationFn: (formState) => {
-      return fetch(process.env.NX_BASEURL + '/session', {
+      return fetch(NX_BASEURL + '/session', {
         method: 'POST',
         body: JSON.stringify({ ...formState, userID: user.user.id }),
         headers: { 'Content-Type': 'application/json' },
@@ -75,7 +78,7 @@ export function useUpdateSession() {
 
   return useMutation({
     mutationFn: (formState) => {
-      return fetch(process.env.NX_BASEURL + '/session', {
+      return fetch(NX_BASEURL + '/session', {
         method: 'PUT',
         body: JSON.stringify(formState),
         headers: {
@@ -95,7 +98,7 @@ export function useGetBankroll() {
 
   return useMutation({
     mutationFn: (formState) => {
-      return fetch(process.env.NX_BASEURL + '/bankroll', {
+      return fetch(NX_BASEURL + '/bankroll', {
         method: 'POST',
         body: JSON.stringify(formState),
         headers: {
@@ -115,7 +118,7 @@ export function useUpdateBankroll() {
 
   return useMutation({
     mutationFn: (formState) => {
-      return fetch(process.env.NX_BASEURL + '/bankroll', {
+      return fetch(NX_BASEURL + '/bankroll', {
         method: 'POST',
         body: JSON.stringify({ ...formState, id: user.user.id }),
         headers: { 'Content-Type': 'application/json' },
