@@ -13,8 +13,11 @@ import connection from './config/connection';
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/api', router);
+app.use(
+  '*',
+  express.static(path.join(__dirname, '../../../dist/apps/poker-roll'))
+);
 
 const port = process.env.PORT || 3333;
 const server = app.listen(port, () => {
