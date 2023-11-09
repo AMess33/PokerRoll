@@ -11,7 +11,7 @@ import {
   useUser,
   RedirectToSignIn,
 } from '@clerk/clerk-react';
-import { Box } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 
 if (!process.env.NX_CLERK_PUBLISHABLE_KEY) {
   throw new Error('Missing Publishable Key');
@@ -24,7 +24,9 @@ function PokerRoll() {
   return (
     <QueryClientProvider client={queryClient}>
       <ClerkProvider publishableKey={clerkPubKey}>
-        <Home />
+        <CssBaseline>
+          <Home />
+        </CssBaseline>
       </ClerkProvider>
     </QueryClientProvider>
   );
