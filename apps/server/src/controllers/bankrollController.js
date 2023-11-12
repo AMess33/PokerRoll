@@ -36,24 +36,20 @@ module.exports = {
 
   async updateBankroll(req, res) {
     try {
-      console.log(req.body);
       let bankroll = await Bankroll.findOne(
         { userID: req.body.id },
         {},
         { sort: { timeStamp: -1 } }
       );
-      console.log(bankroll);
       if (!bankroll) {
         return res.status(404).json({ message: 'No Bankroll found' });
       }
-      console.log(bankroll);
       const newAmount = bankroll.amount + req.body.amount;
       const newBankroll = await Bankroll.create({
         userID: req.body.id,
         amount: newAmount,
       });
 
-      console.log(newBankroll);
       res.json('Bankroll Updated!');
     } catch (err) {
       console.log(err);

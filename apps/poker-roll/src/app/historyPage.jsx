@@ -66,4 +66,12 @@ const PastSessionContainer = () => {
   });
 };
 
-export default PastSessionContainer;
+const History = (props) => {
+  return (
+    <div>
+      <h2>Completed Sessions</h2>
+      <PastSession />
+    </div>
+  );
+};
+export default History;
