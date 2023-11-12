@@ -6,6 +6,7 @@ import { useUser } from '@clerk/clerk-react';
 
 const AppHeader = () => {
   const { user } = useUser();
+  const userImage = user.imageUrl;
   console.log(user);
   return (
     <div>
@@ -15,6 +16,7 @@ const AppHeader = () => {
         width={'100%'}
         height={'250px'}
       ></img>
+      <img className="userImage" src={userImage} alt="Your Profile"></img>
     </div>
   );
 };

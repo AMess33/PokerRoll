@@ -1,9 +1,0 @@
-.bgImage {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-image: url('/apps/poker-roll/src/assets/images/poker-roll-high-resolution-logo.png');
-  background-size: cover;
-  width: 100%;
-  height: 300px;
-}
