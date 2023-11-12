@@ -58,7 +58,7 @@ function Home() {
           <div>
             <BottomNav />
           </div>
-          <Box sx={{ height: '55px' }}></Box>
+          <Box sx={{ height: '60px' }}></Box>
         </div>
       </SignedIn>
       <SignedOut>
