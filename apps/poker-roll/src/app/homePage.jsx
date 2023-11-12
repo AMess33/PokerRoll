@@ -1,6 +1,7 @@
 import * as React from 'react';
 import BottomNav from './bottomNav';
 import ActiveSession from './activeSessionComponent';
+import AppHeader from './header';
 import { BrowserRouter as Router, Outlet } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
@@ -45,8 +46,8 @@ function Home() {
     <div>
       <SignedIn>
         <div>
-          <div className="header">
-            <h1>Poker Roll</h1>
+          <div>
+            <AppHeader />
           </div>
           <div>
             <ActiveSession />

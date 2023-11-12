@@ -48,7 +48,7 @@ const PastSession = () => {
 const History = (props) => {
   return (
     <div>
-      <h2>Completed Sessions</h2>
+      <h2 style={{ textAlign: 'center' }}>Completed Sessions</h2>
       <PastSession />
     </div>
   );
