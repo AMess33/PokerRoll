@@ -36,6 +36,7 @@ export default function BottomNav() {
     >
       <BottomNavigationAction
         sx={{
+          fontWeight: 'bold',
           color: '#0288d1',
           bgcolor: '#bdbdbd',
           border: 2,
@@ -47,6 +48,7 @@ export default function BottomNav() {
       />
       <BottomNavigationAction
         sx={{
+          fontWeight: 'bold',
           color: '#0288d1',
           bgcolor: '#bdbdbd',
           border: 2,
@@ -58,6 +60,7 @@ export default function BottomNav() {
       />
       <BottomNavigationAction
         sx={{
+          fontWeight: 'bold',
           color: '#0288d1',
           bgcolor: '#bdbdbd',
           border: 2,
