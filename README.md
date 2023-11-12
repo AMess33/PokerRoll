@@ -4,8 +4,9 @@
 
 Poker Roll is a mobile app that allows you to log and keep track of all of your live poker sessions. Whether its an easier way to manage your bankroll or just a ledger to track your win/loss for the year, Poker Roll has you covered.
 
-- I created this app to allow me to track and maintain my poker bankroll
-<!-- - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
+- This app was created to allow the user to track and maintain their poker bankroll
+- This app will make it easier for the user to track and manage their poker bankroll and keep a log of their poker session results
+<!-- <!-- - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
 - What problem does it solve?
 - What did you learn?
 
@@ -16,17 +17,22 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
-- [License](#license)
+- [License](#license) -->
 
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+![Screenshot of Application](./apps/poker-roll/src/assets/images/)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Visit the web application at: [https://pokerroll.fly.dev/]
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+1. You will be directed to Clerk to create an account or log in to our app.
+2. Navigate to the BankRoll page using the bottom nav and add your initial Bankroll amount into the app.
+3. Use the New Session bottom nav button to begin a new session by filling in the form and clicking 'Start Session'
+4. Your active sessions will display on all pages until it is complete. Click 'Finish Session' to complete your poker session by filling in your results in the form'
+5. Your bankroll updates and session results will be used to populate the Graph on the Bankroll page to show your bankroll change over time
+6. Visit the History page to see all youre previous poker sessions
+
+<!-- To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
     ```md
     ![alt text](assets/images/screenshot.png)
@@ -64,4 +70,4 @@ If you created an application or package and would like other developers to cont
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here. -->
+Go the extra mile and write tests for your application. Then provide examples on how to run them here. --> -->
