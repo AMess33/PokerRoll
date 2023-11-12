@@ -7,7 +7,6 @@ import { useUser } from '@clerk/clerk-react';
 const AppHeader = () => {
   const { user } = useUser();
   const userImage = user.imageUrl;
-  console.log(user);
   return (
     <div>
       <img

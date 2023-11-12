@@ -27,7 +27,6 @@ module.exports = {
         { $set: { ...req.body, endTime: Date.now() } },
         { new: true }
       );
-      console.log(session);
       if (!session) {
         return res.status(404).json({ message: 'No session with this id!' });
       }
@@ -37,7 +36,6 @@ module.exports = {
         {},
         { sort: { timeStamp: -1 } }
       );
-      console.log(bankroll);
       if (!bankroll) {
         return res.status(404).json({ message: 'No Bankroll Found' });
       }
@@ -50,7 +48,6 @@ module.exports = {
         userID: session.userID,
         amount: newAmount,
       });
-      console.log(newBankroll);
       res.json('Bankroll Updated!');
     } catch (err) {
       console.log(err);
