@@ -54,6 +54,9 @@ const PastSession = (props) => {
           <Typography sx={{ width: '75%', color: 'text.secondary' }}>
             {props.session.game}
           </Typography>
+          <Typography sx={{ width: '90%', color: 'text.secondary' }}>
+            {formatDate}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

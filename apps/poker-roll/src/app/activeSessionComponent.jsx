@@ -13,9 +13,13 @@ const ActiveSession = (props) => {
   };
   return (
     <div>
-      <h2>Active Sessions</h2>
+      <h2 style={{ textAlign: 'center' }}>Active Sessions</h2>
       <Container
-        style={{ border: '2px solid rgba(0, 0, 0, 0.5)' }}
+        style={{
+          borderRadius: '16px',
+          border: '3px solid rgba(42, 45, 231, 0.8)',
+          backgroundColor: 'gold',
+        }}
         maxWidth="sm"
       >
         <Box sx={{ m: 1 }} textAlign={'center'}>
