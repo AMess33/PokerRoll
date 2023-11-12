@@ -1,39 +1,21 @@
 import React from "react";
 import Graph from "./graphComponent";
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import BankrollHeader from './bankrollHeader';
 
-
-function PastSession(props){
-    return (
-        <div>
-            <Container maxWidth="sm">
-                <Box>
-                    <h4>Date</h4>
-                    <p>GAME Played</p>
-                    <span>+- result</span>
-                </Box>
-            {/* show info of previous sessions */}
-            {/* date/ location/ game type/ plus/minus of session */}
-            </Container>
-        </div>
-    )
-}
-const Bankroll = (props) => {
+// bankroll page will display current bankroll, graph of bankroll overtime
+const Bankroll = () => {
 
     return (
         <div>
-            <Container maxWidth="sm">
-                <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>
+            <div>
+                <BankrollHeader />
+            </div>
+            <div>
                 <Graph />
-                {/* Current Bankroll amount at top */}
-                {/* display a graph of bankroll change over time */}
-                {/* buttons to change timeframe */}
-                {/* past month/ 6 months/ ytd/ all time */}
-                </Box>
-                <PastSession />
-            </Container>
+            </div>
         </div>
     )
 }
+
+
 export default Bankroll;
