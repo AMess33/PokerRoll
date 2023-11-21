@@ -13,7 +13,9 @@ const AppHeader = () => {
         width={'100%'}
         height={'250px'}
       ></img>
-      <UserButton />
+      <div className="userImage">
+        <UserButton />
+      </div>
     </div>
   );
 };
