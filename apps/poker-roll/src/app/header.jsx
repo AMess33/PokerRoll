@@ -1,12 +1,10 @@
 import React from 'react';
-import { useUser } from '@clerk/clerk-react';
+import { UserButton } from '@clerk/clerk-react';
 // build app header
 // place logo
 // add user profile picture from clerk
 
 const AppHeader = () => {
-  const { user } = useUser();
-  const userImage = user.imageUrl;
   return (
     <div>
       <img
@@ -15,7 +13,7 @@ const AppHeader = () => {
         width={'100%'}
         height={'250px'}
       ></img>
-      <img className="userImage" src={userImage} alt="Your Profile"></img>
+      <UserButton />
     </div>
   );
 };
