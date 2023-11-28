@@ -12,3 +12,12 @@
   margin: 10px;
   text-align: center;
 }
+
+.welcome {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+  border: #0288d1;
+  border-style: solid;
+  background-color: lightgray;
+}
