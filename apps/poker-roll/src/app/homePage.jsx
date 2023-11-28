@@ -2,6 +2,7 @@ import * as React from 'react';
 import BottomNav from './bottomNav';
 import ActiveSession from './activeSessionComponent';
 import AppHeader from './header';
+import Welcome from './welcome';
 import { BrowserRouter as Router, Outlet } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
@@ -51,6 +52,9 @@ function Home() {
           </div>
           <div>
             <ActiveSession />
+          </div>
+          <div>
+            <Welcome />
           </div>
           <div>
             <Outlet />
